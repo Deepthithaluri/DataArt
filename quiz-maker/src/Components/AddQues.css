@@ -1,0 +1,50 @@
+.upload-container {
+  max-width: 600px;
+  margin: 60px auto;
+  padding: 30px;
+  background-color: #fefefe;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.upload-container h2 {
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+.upload-container input[type="file"] {
+  margin: 20px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 100%;
+}
+
+.upload-button {
+  padding: 12px 24px;
+  background-color: #8e44ad;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.upload-button:hover {
+  background-color: #732d91;
+}
+
+.success {
+  color: #27ae60;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.error {
+  color: #e74c3c;
+  margin-top: 20px;
+  font-weight: bold;
+}

@@ -1,99 +1,128 @@
 const express = require('express');
 const cors = require('cors');
-const Quiz = require('./models/Quiz');
-
-const QuizResult = require('./models/QuizResult');
-const QuizProgress = require('./models/QuizProgress');
-const { connectDB } = require('./db/connectDb');
-
-const userRouter = require("./routes/userRouter")
-const quizRouter = require("./routes/quizRouter")
+const path = require('path');
+const formulaRouter = require('./routes/formulaRouter');
 
 require('dotenv').config();
 
-connectDB();
-//auto submit quiz
-async function autoSubmitQuizzes() {
-    try {
-        const quizProgressList = await QuizProgress.find({ completed: false });
-
-        for (const quizProgress of quizProgressList) {
-            const quiz = await Quiz.findOne({ quiz_id: quizProgress.quiz_id });
-
-            if (!quiz) continue;
-
-            const elapsedTime = (Date.now() - quizProgress.lastUpdated.getTime()) / 1000; // Time in seconds
-            const totalElapsedTime = quizProgress.elapsedTime + elapsedTime;
-
-            if (totalElapsedTime >= quiz.timeLimit * 60) {
-                // Time limit reached, auto-submit quiz
-                quizProgress.elapsedTime = totalElapsedTime;
-                quizProgress.completed = true;
-
-                let score = 0;
-                const answersWithCorrectness = quizProgress.answers.map(answer => {
-                    const question = quiz.questions.id(answer.question_id);
-                    const isCorrect = question.correctAnswer === answer.selectedOption;
-                    if (isCorrect) score += 1;
-                    return {
-                        ...answer,
-                        isCorrect
-                    };
-                });
-
-                // Check if quiz is already taken by this user
-                const quizResultExists = await QuizResult.findOne({ quiz_id: quizProgress.quiz_id, user_id: quizProgress.user_id });
-                if (quizResultExists) {
-                    console.log(`Quiz ${quizProgress.quiz_id} already taken by user ${quizProgress.user_id}`);
-                    continue; // Skip further processing
-                }
-
-                // Save QuizResult
-                const quizResult = new QuizResult({
-                    quiz_id: quizProgress.quiz_id,
-                    user_id: quizProgress.user_id,
-                    score,
-                    answers: answersWithCorrectness
-                });
-
-                await quizResult.save();
-
-                // Update Quiz takenBy if the user hasn't already taken it
-                if (!quiz.takenBy.includes(quizProgress.user_id)) {
-                    quiz.takenBy.push(quizProgress.user_id);
-                    await quiz.save();
-                }
-            } else {
-                // Time limit not reached, update elapsedTime
-                quizProgress.elapsedTime = totalElapsedTime;
-            }
-
-            // Save the quiz progress
-            quizProgress.lastUpdated = new Date();
-            await quizProgress.save();
-        }
-    } catch (err) {
-        console.error('Error in autoSubmitQuizzes:', err);
-    }
-    console.log('autoSubmitQuizzes ran');
-}
-
-
-
-// Periodically check every minute
-setInterval(autoSubmitQuizzes, 60 * 1000);
 
 const app = express();
 
-// Middleware
+// ✅ Add this CORS middleware early
+app.use(cors({
+  origin: 'http://localhost:3000', // or your frontend URL
+  methods: ['GET', 'POST'],
+  credentials: true
+}));
+
+// Other middleware
+app.use(express.json());
+app.use('/api/questions', require('./routes/questionRoutes'));
+
+// Start server
+
+const sequelize = require('./config/db');
+const { Sequelize, DataTypes } = require('sequelize');
+const defineQuizProgress = require('./models/QuizProgress');
+const QuizProgress = defineQuizProgress(sequelize, DataTypes);
+
+const Quiz = require('./models');
+const QuizResult = require('./models/QuizResult');
+const Question = require('./models/Question');
+
+const userRouter = require('./routes/userRouter');
+const quizRouter = require('./routes/quizRouter');
+const uploadRoutes = require('./routes/uploadRoutes'); // ✅ NEW
+const questionBankRouter = require('./routes/questionBankRouter'); // optional
+const formulasRouter = require('./routes/formulas'); // optional
+
 app.use(express.json());
 app.use(cors());
 
-app.use('/api/users', userRouter);
+// ✅ Mount API routes
+app.use('/api', userRouter);
 app.use('/api/quizzes', quizRouter);
+app.use('/api/questions', uploadRoutes); // ✅ Mount upload route correctly
+app.use('/api/question-bank', questionBankRouter); // optional
+app.use('/api/formulas', formulasRouter); // optional
 
-app.use('/', (req, res) => res.send('Hello World!'));
+app.get('/', (req, res) => res.send('Hello World!'));
 
-const PORT = process.env.PORT || 5000;
-//print req res status
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+// ✅ Auto-submit logic
+async function autoSubmitQuizzes() {
+  try {
+    const quizProgressList = await QuizProgress.findAll({ where: { completed: false } });
+
+    for (const quizProgress of quizProgressList) {
+      const quiz = await Quiz.findByPk(quizProgress.quiz_id);
+      if (!quiz) continue;
+
+      const elapsedTime = (Date.now() - new Date(quizProgress.last_updated).getTime()) / 1000;
+      const totalElapsedTime = quizProgress.elapsed_time + elapsedTime;
+
+      if (totalElapsedTime >= quiz.time_limit * 60) {
+        quizProgress.elapsed_time = totalElapsedTime;
+        quizProgress.completed = true;
+
+        const questions = JSON.parse(quiz.questions);
+        const answers = JSON.parse(quizProgress.answers);
+
+        let score = 0;
+        const answersWithCorrectness = answers.map(answer => {
+          const question = questions.find(q => q.question_id === answer.question_id);
+          const isCorrect = question && question.correctAnswer === answer.selectedOption;
+          if (isCorrect) score += 1;
+          return { ...answer, isCorrect };
+        });
+
+        const existingResult = await QuizResult.findOne({
+          where: { quiz_id: quizProgress.quiz_id, user_id: quizProgress.user_id }
+        });
+
+        if (existingResult) {
+          console.log(`Quiz ${quizProgress.quiz_id} already taken by user ${quizProgress.user_id}`);
+          continue;
+        }
+
+        await QuizResult.create({
+          quiz_id: quizProgress.quiz_id,
+          user_id: quizProgress.user_id,
+          score,
+          answers: JSON.stringify(answersWithCorrectness)
+        });
+
+        const takenBy = Array.isArray(quiz.taken_by) ? quiz.taken_by : [];
+        if (!takenBy.includes(quizProgress.user_id)) {
+          takenBy.push(quizProgress.user_id);
+          await quiz.update({ taken_by: takenBy });
+        }
+      } else {
+        quizProgress.elapsed_time = totalElapsedTime;
+      }
+
+      quizProgress.last_updated = new Date();
+      await quizProgress.save();
+    }
+  } catch (err) {
+    console.error('Error in autoSubmitQuizzes:', err);
+  }
+  console.log('autoSubmitQuizzes ran');
+}
+
+// ✅ Run every minute
+setInterval(autoSubmitQuizzes, 60 * 1000);
+
+// ✅ Sync models and start server
+sequelize.sync().then(() => {
+  console.log('MySQL connected and models synced');
+
+  const PORT = process.env.PORT || 5001;
+
+  // ✅ Serve frontend
+  app.use(express.static(path.join(__dirname, '../quiz-maker/build')));
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../quiz-maker/build', 'index.html'));
+  });
+
+  app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+});

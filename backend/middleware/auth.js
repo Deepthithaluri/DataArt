@@ -1,18 +1,32 @@
 const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
-module.exports = function (req, res, next) {
-    console.log("Auth middleware");
-    const token = req.header('x-auth-token');
+const auth = (req, res, next) => {
+  console.log("🔐 Auth middleware triggered");
 
-    console.log(token);
-    if (!token) return res.status(401).json({ msg: 'No token, authorization denied' });
+  const rawToken = req.header('x-auth-token') || req.header('Authorization');
+  const token = rawToken?.startsWith('Bearer ') ? rawToken.slice(7) : rawToken;
 
-    try {
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        req.user = decoded.user;
-        console.log('success..', req.user);
-        next();
-    } catch (err) {
-        res.status(401).json({ msg: 'Token is not valid' });
-    }
+  if (!token) {
+    console.warn("🚫 No token provided");
+    return res.status(401).json({ msg: 'No token, authorization denied' });
+  }
+
+  try {
+   const decoded = jwt.verify(token, process.env.JWT_SECRET);
+req.user = {
+  id: decoded.user.id,
+  role: decoded.user.role
 };
+
+
+
+    console.log("✅ Token verified. User ID:", req.user.id);
+    next();
+  } catch (err) {
+    console.error("❌ Token verification failed:", err.message);
+    res.status(401).json({ msg: 'Token is not valid' });
+  }
+};
+
+module.exports = auth;

@@ -57,7 +57,8 @@ const UserScoresTable = ({ users }) => {
         {pageNumbers.map((number, index) => (
           <button
             key={index}
-            className={number === currentPage ? 'active' : ''}
+            className={`page-btn ${number === currentPage ? 'active' : ''}`}
+            aria-label={`Go to page ${number}`}
             onClick={() => {
               if (typeof number === 'number') {
                 handleClick(number);

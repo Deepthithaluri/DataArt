@@ -1,17 +1,29 @@
-const mongoose = require('mongoose');
-
-const QuizResultSchema = new mongoose.Schema({
-    quiz_id: { type: String, required: true },
-    user_id: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-    score: { type: Number, required: true },
-    answers: [
-        {
-            question_id: { type: mongoose.Schema.Types.ObjectId, required: true },
-            selectedOption: { type: String, required: true },
-            isCorrect: { type: Boolean }
-        }
-    ],
-    date: { type: Date, default: Date.now }
-});
-
-module.exports = mongoose.model('QuizResult', QuizResultSchema);
+module.exports = (sequelize, DataTypes) => {
+  return sequelize.define('QuizResult', {
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true,
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    quiz_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    score: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    answers: {
+      type: DataTypes.JSON, // stores answers with correctness
+      allowNull: true,
+    },
+  }, {
+    tableName: 'quiz_results',
+    timestamps: true,
+    underscored: false,
+  });
+};

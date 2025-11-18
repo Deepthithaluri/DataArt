@@ -1,9 +1,9 @@
-# QuizMaster Backend
+# ScoreMax Backend
     
 
 ## Description
 
-This is the backend of QuizMaster, a comprehensive Quiz Application built using Node.js, Express, MongoDB, and Mongoose. It includes functionalities for user authentication, quiz management, quiz progress tracking, email service, reset-password and automatic quiz submission.
+This is the backend of ScoreMax, a comprehensive Quiz Application built using Node.js, Express, MySQL. It includes functionalities for user authentication, quiz management, quiz progress tracking, email service, reset-password and automatic quiz submission.
 
 ## Features
 
@@ -17,7 +17,7 @@ This is the backend of QuizMaster, a comprehensive Quiz Application built using 
 ## Folder Structure
 
 ```
-QuizMaster
+ScoreMax
 ├── middleware
 │   └── auth.js
 ├── models
@@ -41,8 +41,8 @@ QuizMaster
 Create a `.env` file in the root directory and add the following environment variables:
 
 ```
-PORT=5000
-MONGO_URI=mongodb://127.0.0.1:27017/mern-quiz-app
+PORT=5001
+MYSQL_URI=mysql://127.0.0.1:27017/mern-quiz-app
 JWT_SECRET=your_secret_key
 EMAIL_USER=your_email_id
 EMAIL_PASSWORD=your_email_password
@@ -93,6 +93,6 @@ FRONTEND_URL=http://localhost:3000
     npm run dev
     ```
 
-3. The server will start on the port specified in the `.env` file. Default is `5000`.
+3. The server will start on the port specified in the `.env` file. Default is `5001`.
 
 ---

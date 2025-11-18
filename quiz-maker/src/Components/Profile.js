@@ -2,38 +2,48 @@ import React, { useEffect, useState } from 'react';
 import './Profile.css';
 import { useNavigate } from 'react-router-dom';
 
-const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{6,}$/;
+const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
 
 const Profile = () => {
-  const navigate= useNavigate();
-  //check user is logged in or not
-  
-  if (!localStorage.getItem('token')||localStorage.getItem('token')===null) {
-    navigate('/login');
-  }
-  const [user, setUser] = useState({
-    username: "",
-    email: "",
-  });
+  const navigate = useNavigate();
+
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [newUsername, setNewUsername] = useState('');
+  const [oldPassword, setOldPassword] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+
+  const [usernameError, setUsernameError] = useState('');
+  const [oldPasswordError, setOldPasswordError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+  const [confirmPasswordError, setConfirmPasswordError] = useState('');
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      navigate('/login');
+    }
+  }, [navigate]);
 
   useEffect(() => {
     const fetchUser = async () => {
+      const token = localStorage.getItem('token');
+      if (!token) return;
+
       try {
-        const url = process.env.REACT_APP_BACKEND_URL + "/users/me";
-        const response = await fetch(url, {
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/me`, {
           headers: {
             'Content-Type': 'application/json',
-            'x-auth-token': localStorage.getItem('token'),
+            'x-auth-token': token,
           },
         });
+
         const data = await response.json();
-        console.log(data);
-        setUser(data);
+        if (!response.ok) throw new Error(data.message || 'Failed to fetch user data');
+
         setUsername(data.username);
         setEmail(data.email);
-        if (!response.ok) {
-          throw new Error('Failed to fetch user data');
-        }
       } catch (error) {
         console.error('Error fetching user data:', error);
       }
@@ -42,133 +52,73 @@ const Profile = () => {
     fetchUser();
   }, []);
 
-  
-  const [username, setUsername] = useState(user.username);
-  const [email, setEmail] = useState(user.email);
-  const [newUsername, setNewUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [passwordError, setPasswordError] = useState('');
-  const [confirmPasswordError, setConfirmPasswordError] = useState('');
-  const [usernameError, setUsernameError] = useState('');
-  const [oldPassword, setOldPassword] = useState('');
-  const [oldPasswordError, setOldPasswordError] = useState('');
-
-  const handleUsernameChange = (e) => {
-    setNewUsername(e.target.value);
-  };
-
-  const handlePasswordChange = (e) => {
-    const value = e.target.value;
-    setPassword(value);
-    if (!passwordRegex.test(value)) {
-      setPasswordError(
-        'Password must be at least 6 characters long and include at least one uppercase letter, one lowercase letter, and one number.'
-      );
-    } else {
-      setPasswordError('');
-    }
-    if (value !== confirmPassword) {
-      setConfirmPasswordError('Passwords do not match.');
-    } else {
-      setConfirmPasswordError('');
-    }
-  };
-
-  const handleConfirmPasswordChange = (e) => {
-    const value = e.target.value;
-    setConfirmPassword(value);
-    if (value !== password) {
-      setConfirmPasswordError('Passwords do not match.');
-    } else {
-      setConfirmPasswordError('');
-    }
-  };
-
-  const handleOldPasswordChange = (e) => {
-    setOldPassword(e.target.value)
-};
-
   const handleUsernameSubmit = async (e) => {
     e.preventDefault();
-    if (newUsername.length <= 6) {
-      setUsernameError('Username must be longer than 6 characters.');
-    } 
-    else if(
-      newUsername.includes(' ')
-    ){
-      setUsernameError('Username should not contain spaces.');
+    if (newUsername.length < 6 || newUsername.includes(' ')) {
+      setUsernameError('Username must be at least 6 characters and contain no spaces.');
+      return;
     }
-    else {
-      setUsernameError('');
-      try {
-        const url = process.env.REACT_APP_BACKEND_URL + "/users/update-username";
-        const response = await fetch(url, {
-          method: 'PUT',
-          headers: {
-            'Content-Type': 'application/json',
-            'x-auth-token': localStorage.getItem('token'),
-          },
-          body: JSON.stringify({ username: newUsername }), // Send newUsername in the request body
-        });
-        const data = await response.json();
-        if (!response.ok) {
-          setUsernameError(data.msg || 'Failed to update username. Please try again.' );
 
-        } 
-        else{
-          alert('Username updated successfully');
-          //refresh the page
-          window.location.reload();
-        }
+    try {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/update-username`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-auth-token': localStorage.getItem('token'),
+        },
+        body: JSON.stringify({ username: newUsername }),
+      });
 
-         // Update state with new username
-  
-      } catch (error) {
-        console.error('Error updating username:', error);
-        setUsernameError('Error updating username. Please try again.');
+      const data = await response.json();
+      if (!response.ok) {
+        setUsernameError(data.msg || 'Failed to update username.');
+      } else {
+        alert('Username updated successfully');
+        window.location.reload();
       }
+    } catch (error) {
+      console.error('Error updating username:', error);
+      setUsernameError('Error updating username. Please try again.');
     }
   };
-  
 
   const handlePasswordSubmit = async (e) => {
     e.preventDefault();
-    
-    // Check if there are no errors and password is not empty
-    if (passwordError === '' && confirmPasswordError === '' && password !== '') {
-        try {
-            const url = `${process.env.REACT_APP_BACKEND_URL}/users/update-password`;
-            const response = await fetch(url, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'x-auth-token': localStorage.getItem('token'),
-                },
-                body: JSON.stringify({ password, oldPassword }), // Send password in the request body
-            });
-
-            const data = await response.json();
-
-            if (!response.ok) {
-                if (data.msg === 'Invalid old password') {
-                    setOldPasswordError(data.msg);
-                }
-                else {
-                setPasswordError(data.msg || 'Failed to update password. Please try again.')
-                }
-            } else {
-                alert('Password updated successfully');
-                // Refresh the page or update state to reflect the password change
-                window.location.reload();
-            }
-        } catch (error) {
-            console.error('Error updating password:', error);
-            setPasswordError('Error updating password. Please try again.');
-        }
+    if (!passwordRegex.test(password)) {
+      setPasswordError('Password must include uppercase, lowercase, and a number.');
+      return;
     }
-};
+    if (password !== confirmPassword) {
+      setConfirmPasswordError('Passwords do not match.');
+      return;
+    }
 
+    try {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/update-password`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-auth-token': localStorage.getItem('token'),
+        },
+        body: JSON.stringify({ oldPassword, password }),
+      });
+
+      const data = await response.json();
+      if (!response.ok) {
+        if (data.msg === 'Invalid old password') {
+          setOldPasswordError(data.msg);
+        } else {
+          setPasswordError(data.msg || 'Failed to update password.');
+        }
+      } else {
+        alert('Password updated successfully');
+        window.location.reload();
+      }
+    } catch (error) {
+      console.error('Error updating password:', error);
+      setPasswordError('Error updating password. Please try again.');
+    }
+  };
 
   return (
     <div className="profile">
@@ -183,6 +133,7 @@ const Profile = () => {
           <span className="profile-value">{email}</span>
         </div>
       </div>
+
       <div className="profile-forms">
         <div className="profile-card">
           <form className="profile-form" onSubmit={handleUsernameSubmit}>
@@ -193,7 +144,7 @@ const Profile = () => {
                 type="text"
                 id="newUsername"
                 value={newUsername}
-                onChange={handleUsernameChange}
+                onChange={(e) => setNewUsername(e.target.value)}
                 required
               />
               {usernameError && <p className="error">{usernameError}</p>}
@@ -201,16 +152,17 @@ const Profile = () => {
             <button type="submit">Update Username</button>
           </form>
         </div>
+
         <div className="profile-card">
           <form className="profile-form" onSubmit={handlePasswordSubmit}>
             <h3>Update Password</h3>
             <div className="form-group">
               <label htmlFor="oldPassword">Old Password:</label>
               <input
-                type="oldPassword"
+                type="password"
                 id="oldPassword"
                 value={oldPassword}
-                onChange={handleOldPasswordChange}
+                onChange={(e) => setOldPassword(e.target.value)}
                 required
               />
               {oldPasswordError && <p className="error">{oldPasswordError}</p>}
@@ -221,7 +173,7 @@ const Profile = () => {
                 type="password"
                 id="password"
                 value={password}
-                onChange={handlePasswordChange}
+                onChange={(e) => setPassword(e.target.value)}
                 required
               />
               {passwordError && <p className="error">{passwordError}</p>}
@@ -232,7 +184,7 @@ const Profile = () => {
                 type="password"
                 id="confirmPassword"
                 value={confirmPassword}
-                onChange={handleConfirmPasswordChange}
+                onChange={(e) => setConfirmPassword(e.target.value)}
                 required
               />
               {confirmPasswordError && <p className="error">{confirmPasswordError}</p>}

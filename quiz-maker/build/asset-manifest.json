@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.1b65d72e.css",
+    "main.js": "/static/js/main.b0eb527b.js",
+    "static/js/453.803976f3.chunk.js": "/static/js/453.803976f3.chunk.js",
+    "static/media/fa-solid-900.woff2": "/static/media/fa-solid-900.0ae4e6254fc19607c79e.woff2",
+    "static/media/fa-brands-400.woff2": "/static/media/fa-brands-400.e7461d69dbbff1310a5c.woff2",
+    "static/media/team.svg": "/static/media/team.7306edb01c63b19badc28a5b0706bc7b.svg",
+    "static/media/quizmaster-high-resolution-logo-white-transparent.png": "/static/media/quizmaster-high-resolution-logo-white-transparent.1e8a07ef7dea2965ed31.png",
+    "static/media/quizmaster-high-resolution-logo-black-transparent.png": "/static/media/quizmaster-high-resolution-logo-black-transparent.52632e92d6bbcb2f4139.png",
+    "static/media/fa-regular-400.woff2": "/static/media/fa-regular-400.1f38a564cd9eae27ebc3.woff2",
+    "static/media/quizmaster-icon_transparent.png": "/static/media/quizmaster-icon_transparent.864bf16870c0fe8d551e.png",
+    "static/media/fa-v4compatibility.woff2": "/static/media/fa-v4compatibility.661bd6b7245d5205d3e1.woff2",
+    "index.html": "/index.html",
+    "main.1b65d72e.css.map": "/static/css/main.1b65d72e.css.map",
+    "main.b0eb527b.js.map": "/static/js/main.b0eb527b.js.map",
+    "453.803976f3.chunk.js.map": "/static/js/453.803976f3.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1b65d72e.css",
+    "static/js/main.b0eb527b.js"
+  ]
+}

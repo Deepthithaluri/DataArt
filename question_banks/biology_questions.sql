@@ -1,0 +1,88 @@
+INSERT INTO question_bank (subject, topic, questionText, options, correctAnswer) VALUES
+('Biology', 'Cell Structure', 'Which organelle is known as the powerhouse of the cell?', '["Nucleus", "Mitochondria", "Ribosome", "Golgi apparatus"]', 'Mitochondria', 'Mitochondria generate energy in the form of ATP, hence called the powerhouse.'),
+('Biology', 'Cell Structure', 'Which part of the cell contains genetic material?', '["Cytoplasm", "Nucleus", "Mitochondria", "Ribosome"]', 'Nucleus', 'The nucleus contains DNA, the genetic material of the cell.'),
+('Biology', 'Cell Structure', 'Which organelle is responsible for protein synthesis?', '["Ribosome", "Lysosome", "Mitochondria", "Vacuole"]', 'Ribosome', 'Ribosomes synthesize proteins by translating mRNA.'),
+('Biology', 'Cell Structure', 'Which structure controls the movement of substances in and out of the cell?', '["Cell wall", "Nucleus", "Cell membrane", "Cytoplasm"]', 'Cell membrane', 'The cell membrane regulates entry and exit of substances.'),
+('Biology', 'Cell Structure', 'Which organelle is found only in plant cells?', '["Mitochondria", "Chloroplast", "Ribosome", "Nucleus"]', 'Chloroplast', 'Chloroplasts are responsible for photosynthesis and are found only in plant cells.'),
+('Biology', 'Cell Structure', 'What is the jelly-like substance inside the cell?', '["Nucleus", "Cytoplasm", "Cell wall", "Vacuole"]', 'Cytoplasm', 'Cytoplasm is the fluid that fills the cell and holds organelles.'),
+('Biology', 'Cell Structure', 'Which organelle helps in digestion within the cell?', '["Ribosome", "Lysosome", "Mitochondria", "Golgi apparatus"]', 'Lysosome', 'Lysosomes contain enzymes that digest cellular waste.'),
+('Biology', 'Cell Structure', 'Which cell organelle is involved in packaging and transport?', '["Golgi apparatus", "Nucleus", "Ribosome", "Vacuole"]', 'Golgi apparatus', 'Golgi apparatus modifies, packages, and transports proteins and lipids.'),
+('Biology', 'Cell Structure', 'Which structure provides rigidity to plant cells?', '["Cell membrane", "Cell wall", "Nucleus", "Cytoplasm"]', 'Cell wall', 'Cell wall is made of cellulose and provides structural support.'),
+('Biology', 'Cell Structure', 'Which organelle is responsible for photosynthesis?', '["Mitochondria", "Chloroplast", "Ribosome", "Nucleus"]', 'Chloroplast', 'Chloroplasts contain chlorophyll and carry out photosynthesis.');
+INSERT INTO question_bank (subject, topic, questionText, options, correctAnswer) VALUES
+('Biology', 'Nutrition', 'Which nutrient is the main source of energy?', '["Proteins", "Fats", "Carbohydrates", "Vitamins"]', 'Carbohydrates', 'Carbohydrates are broken down into glucose, which provides energy.'),
+('Biology', 'Nutrition', 'Which vitamin is essential for blood clotting?', '["Vitamin A", "Vitamin B", "Vitamin C", "Vitamin K"]', 'Vitamin K', 'Vitamin K helps in the synthesis of proteins required for blood clotting.'),
+('Biology', 'Nutrition', 'Which mineral is important for bone health?', '["Iron", "Calcium", "Potassium", "Zinc"]', 'Calcium', 'Calcium strengthens bones and teeth and is essential for muscle function.'),
+('Biology', 'Nutrition', 'Which part of the digestive system absorbs nutrients?', '["Stomach", "Small intestine", "Large intestine", "Esophagus"]', 'Small intestine', 'The small intestine has villi that absorb nutrients into the bloodstream.'),
+('Biology', 'Nutrition', 'Which enzyme breaks down starch?', '["Pepsin", "Lipase", "Amylase", "Trypsin"]', 'Amylase', 'Amylase converts starch into simpler sugars like maltose.'),
+('Biology', 'Nutrition', 'Which vitamin is synthesized by sunlight?', '["Vitamin A", "Vitamin B", "Vitamin D", "Vitamin C"]', 'Vitamin D', 'Vitamin D is produced in the skin when exposed to sunlight.'),
+('Biology', 'Nutrition', 'Which nutrient helps in growth and repair?', '["Carbohydrates", "Proteins", "Fats", "Vitamins"]', 'Proteins', 'Proteins are essential for building and repairing tissues.'),
+('Biology', 'Nutrition', 'Which organ produces bile?', '["Stomach", "Pancreas", "Liver", "Small intestine"]', 'Liver', 'The liver produces bile, which helps in fat digestion.'),
+('Biology', 'Nutrition', 'Which food is rich in iron?', '["Milk", "Spinach", "Rice", "Banana"]', 'Spinach', 'Spinach is a good source of iron, which is needed for hemoglobin.'),
+('Biology', 'Nutrition', 'Which disease is caused by deficiency of Vitamin C?', '["Rickets", "Scurvy", "Night blindness", "Beriberi"]', 'Scurvy', 'Scurvy causes bleeding gums and weakness due to lack of Vitamin C.');
+INSERT INTO question_bank (subject, topic, questionText, options, correctAnswer) VALUES
+('Biology', 'Respiration', 'Which gas is used during aerobic respiration?', '["Carbon dioxide", "Oxygen", "Nitrogen", "Hydrogen"]', 'Oxygen', 'Oxygen is required to break down glucose during aerobic respiration.'),
+('Biology', 'Respiration', 'Which organ is responsible for respiration in humans?', '["Heart", "Lungs", "Kidneys", "Liver"]', 'Lungs', 'Lungs exchange gases during breathing and support respiration.'),
+('Biology', 'Respiration', 'What is the end product of anaerobic respiration in muscles?', '["Alcohol", "Carbon dioxide", "Lactic acid", "Water"]', 'Lactic acid', 'Anaerobic respiration in muscles produces lactic acid.'),
+('Biology', 'Respiration', 'Which molecule is the main energy currency of the cell?', '["DNA", "ATP", "RNA", "Glucose"]', 'ATP', 'ATP (adenosine triphosphate) stores and supplies energy for cellular processes.'),
+('Biology', 'Respiration', 'Where does cellular respiration occur?', '["Nucleus", "Mitochondria", "Ribosome", "Cytoplasm"]', 'Mitochondria', 'Mitochondria are the site of aerobic cellular respiration.'),
+('Biology', 'Respiration', 'Which process releases energy from food?', '["Digestion", "Respiration", "Excretion", "Photosynthesis"]', 'Respiration', 'Respiration breaks down food molecules to release energy.'),
+('Biology', 'Respiration', 'Which gas is released during respiration?', '["Oxygen", "Carbon dioxide", "Nitrogen", "Hydrogen"]', 'Carbon dioxide', 'Carbon dioxide is a waste product of respiration.'),
+('Biology', 'Respiration', 'What is the first step of respiration?', '["Glycolysis", "Krebs cycle", "Electron transport", "Fermentation"]', 'Glycolysis', 'Glycolysis breaks glucose into pyruvate and occurs in the cytoplasm.'),
+('Biology', 'Respiration', 'Which type of respiration occurs without oxygen?', '["Aerobic", "Anaerobic", "Cellular", "Pulmonary"]', 'Anaerobic', 'Anaerobic respiration does not require oxygen and produces less energy.'),
+('Biology', 'Respiration', 'Which organ helps in breathing and is protected by ribs?', '["Heart", "Lungs", "Liver", "Stomach"]', 'Lungs', 'Lungs are protected by the rib cage and are essential for breathing.');
+INSERT INTO question_bank (subject, topic, questionText, options, correctAnswer) VALUES
+('Biology', 'Transportation', 'Which organ pumps blood throughout the body?', '["Lungs", "Heart", "Kidneys", "Liver"]', 'Heart', 'The heart is a muscular organ that circulates blood via arteries and veins.'),
+('Biology', 'Transportation', 'Which blood vessels carry blood away from the heart?', '["Veins", "Arteries", "Capillaries", "Lymph vessels"]', 'Arteries', 'Arteries carry oxygenated blood away from the heart to the body.'),
+('Biology', 'Transportation', 'Which component of blood helps in clotting?', '["RBC", "WBC", "Platelets", "Plasma"]', 'Platelets', 'Platelets help in blood clotting by forming plugs at injury sites.'),
+('Biology', 'Transportation', 'What is the main function of red blood cells?', '["Fight infection", "Transport oxygen", "Clot blood", "Digest food"]', 'Transport oxygen', 'RBCs contain hemoglobin which binds and transports oxygen.'),
+('Biology', 'Transportation', 'Which part of the plant transports water?', '["Phloem", "Xylem", "Stomata", "Root hairs"]', 'Xylem', 'Xylem vessels carry water and minerals from roots to leaves.'),
+('Biology', 'Transportation', 'Which part of the plant transports food?', '["Xylem", "Phloem", "Stomata", "Chloroplast"]', 'Phloem', 'Phloem transports sugars produced in photosynthesis to other parts.'),
+('Biology', 'Transportation', 'Which blood vessels connect arteries and veins?', '["Capillaries", "Lymph vessels", "Bronchi", "Alveoli"]', 'Capillaries', 'Capillaries are tiny vessels that allow exchange between blood and tissues.'),
+('Biology', 'Transportation', 'Which organ filters blood and produces urine?', '["Liver", "Heart", "Kidneys", "Lungs"]', 'Kidneys', 'Kidneys filter waste from blood and regulate water balance.'),
+('Biology', 'Transportation', 'What is the color of oxygenated blood?', '["Blue", "Dark red", "Bright red", "Purple"]', 'Bright red', 'Oxygen-rich blood appears bright red due to hemoglobin.'),
+('Biology', 'Transportation', 'Which part of the heart receives oxygen-poor blood?', '["Left atrium", "Right atrium", "Left ventricle", "Right ventricle"]', 'Right atrium', 'The right atrium receives deoxygenated blood from the body.');
+INSERT INTO question_bank (subject, topic, questionText, options, correctAnswer) VALUES
+('Biology', 'Excretion', 'Which organ removes nitrogenous waste from the body?', '["Liver", "Kidneys", "Lungs", "Heart"]', 'Kidneys', 'Kidneys filter blood and remove nitrogenous waste as urine.'),
+('Biology', 'Excretion', 'What is the basic unit of the kidney?', '["Neuron", "Nephron", "Alveolus", "Glomerulus"]', 'Nephron', 'Nephrons are the structural and functional units of the kidney.'),
+('Biology', 'Excretion', 'Which substance is excreted in urine?', '["Glucose", "Urea", "Protein", "Fat"]', 'Urea', 'Urea is a waste product formed from protein metabolism and excreted in urine.'),
+('Biology', 'Excretion', 'Which organ helps in excretion of carbon dioxide?', '["Kidneys", "Lungs", "Liver", "Skin"]', 'Lungs', 'Lungs remove carbon dioxide during exhalation.'),
+('Biology', 'Excretion', 'Which organ excretes sweat?', '["Liver", "Skin", "Kidneys", "Lungs"]', 'Skin', 'Sweat glands in the skin excrete water, salts, and urea.'),
+('Biology', 'Excretion', 'Which part of nephron filters blood?', '["Tubule", "Glomerulus", "Bowman’s capsule", "Ureter"]', 'Glomerulus', 'Glomerulus is a network of capillaries that filters blood in the nephron.'),
+('Biology', 'Excretion', 'What is the function of ureter?', '["Store urine", "Filter blood", "Carry urine", "Produce urea"]', 'Carry urine', 'Ureters transport urine from kidneys to the bladder.'),
+('Biology', 'Excretion', 'Which organ converts ammonia into urea?', '["Kidneys", "Liver", "Lungs", "Skin"]', 'Liver', 'The liver converts toxic ammonia into urea for safe excretion.'),
+('Biology', 'Excretion', 'Which organ stores urine before excretion?', '["Kidney", "Ureter", "Bladder", "Liver"]', 'Bladder', 'The urinary bladder stores urine until it is excreted.'),
+('Biology', 'Excretion', 'Which system is responsible for excretion?', '["Digestive", "Respiratory", "Excretory", "Circulatory"]', 'Excretory', 'The excretory system removes metabolic waste from the body.');
+INSERT INTO question_bank (subject, topic, questionText, options, correctAnswer) VALUES
+('Biology', 'Reproduction', 'Which organ produces sperm in males?', '["Testes", "Penis", "Prostate", "Scrotum"]', 'Testes', 'Testes are the male reproductive organs that produce sperm and testosterone.'),
+('Biology', 'Reproduction', 'Which organ produces eggs in females?', '["Uterus", "Ovary", "Vagina", "Fallopian tube"]', 'Ovary', 'Ovaries release eggs and produce female hormones like estrogen.'),
+('Biology', 'Reproduction', 'What is the site of fertilization in humans?', '["Uterus", "Ovary", "Fallopian tube", "Vagina"]', 'Fallopian tube', 'Fertilization of egg by sperm usually occurs in the fallopian tube.'),
+('Biology', 'Reproduction', 'Which hormone triggers ovulation?', '["FSH", "LH", "Estrogen", "Progesterone"]', 'LH', 'Luteinizing hormone (LH) causes the release of an egg from the ovary.'),
+('Biology', 'Reproduction', 'Which method of reproduction involves only one parent?', '["Sexual", "Asexual", "Internal", "External"]', 'Asexual', 'Asexual reproduction does not involve gametes and occurs with one parent.'),
+('Biology', 'Reproduction', 'Which structure nourishes the fetus during pregnancy?', '["Ovary", "Placenta", "Uterus", "Amniotic sac"]', 'Placenta', 'The placenta provides nutrients and oxygen to the developing fetus.'),
+('Biology', 'Reproduction', 'Which cell division occurs during gamete formation?', '["Mitosis", "Meiosis", "Binary fission", "Budding"]', 'Meiosis', 'Meiosis reduces chromosome number by half and forms gametes.'),
+('Biology', 'Reproduction', 'Which organism reproduces by budding?', '["Amoeba", "Hydra", "Paramecium", "Yeast"]', 'Hydra', 'Hydra reproduces asexually by forming a bud that grows into a new organism.'),
+('Biology', 'Reproduction', 'Which part of the flower produces pollen?', '["Ovary", "Petal", "Anther", "Style"]', 'Anther', 'Anther is the part of the stamen that produces pollen grains.'),
+('Biology', 'Reproduction', 'Which process leads to formation of zygote?', '["Pollination", "Fertilization", "Germination", "Implantation"]', 'Fertilization', 'Fertilization is the fusion of male and female gametes to form a zygote.');
+INSERT INTO question_bank (subject, topic, questionText, options, correctAnswer) VALUES
+('Biology', 'Nervous System', 'Which organ controls all body functions?', '["Heart", "Brain", "Lungs", "Liver"]', 'Brain', 'The brain is the central organ of the nervous system and controls all body activities.'),
+('Biology', 'Nervous System', 'What is the basic unit of the nervous system?', '["Neuron", "Nucleus", "Axon", "Dendrite"]', 'Neuron', 'Neurons are specialized cells that transmit nerve impulses.'),
+('Biology', 'Nervous System', 'Which part of the neuron receives signals?', '["Axon", "Dendrite", "Cell body", "Synapse"]', 'Dendrite', 'Dendrites receive signals from other neurons and transmit them to the cell body.'),
+('Biology', 'Nervous System', 'Which part of the brain controls balance?', '["Cerebrum", "Cerebellum", "Medulla", "Pons"]', 'Cerebellum', 'The cerebellum coordinates movement and maintains balance.'),
+('Biology', 'Nervous System', 'Which part of the brain controls breathing and heartbeat?', '["Cerebrum", "Cerebellum", "Medulla oblongata", "Thalamus"]', 'Medulla oblongata', 'The medulla regulates involuntary functions like breathing and heartbeat.'),
+('Biology', 'Nervous System', 'Which structure connects the brain to the spinal cord?', '["Cerebellum", "Medulla", "Pons", "Cerebrum"]', 'Medulla', 'The medulla oblongata links the brain to the spinal cord.'),
+('Biology', 'Nervous System', 'Which type of neuron carries signals from sense organs to the brain?', '["Motor neuron", "Sensory neuron", "Relay neuron", "Interneuron"]', 'Sensory neuron', 'Sensory neurons transmit impulses from receptors to the central nervous system.'),
+('Biology', 'Nervous System', 'Which part of the neuron transmits signals away from the cell body?', '["Dendrite", "Axon", "Synapse", "Nucleus"]', 'Axon', 'Axons carry nerve impulses away from the cell body to other neurons or muscles.'),
+('Biology', 'Nervous System', 'What is the gap between two neurons called?', '["Axon", "Dendrite", "Synapse", "Node"]', 'Synapse', 'Synapse is the junction where impulses pass from one neuron to another.'),
+('Biology', 'Nervous System', 'Which system controls voluntary actions?', '["Autonomic nervous system", "Central nervous system", "Peripheral nervous system", "Somatic nervous system"]', 'Somatic nervous system', 'The somatic nervous system controls voluntary movements of skeletal muscles.');
+INSERT INTO question_bank (subject, topic, questionText, options, correctAnswer VALUES
+('Biology', 'Genetics', 'Who is known as the father of genetics?', '["Darwin", "Mendel", "Watson", "Crick"]', 'Mendel', 'Gregor Mendel discovered the basic principles of heredity through pea plant experiments.'),
+('Biology', 'Genetics', 'What is the unit of heredity?', '["Chromosome", "Gene", "DNA", "RNA"]', 'Gene', 'Genes are segments of DNA that determine traits and are passed from parents to offspring.'),
+('Biology', 'Genetics', 'What is the shape of DNA?', '["Single helix", "Double helix", "Triple helix", "Circular"]', 'Double helix', 'DNA has a double helix structure discovered by Watson and Crick.'),
+('Biology', 'Genetics', 'Which molecule carries genetic instructions?', '["RNA", "DNA", "Protein", "Enzyme"]', 'DNA', 'DNA stores and transmits genetic information in cells.'),
+('Biology', 'Genetics', 'What is the number of chromosomes in human body cells?', '["23", "46", "44", "22"]', '46', 'Humans have 23 pairs of chromosomes, totaling 46 in somatic cells.'),
+('Biology', 'Genetics', 'Which chromosome determines male gender?', '["X", "Y", "Z", "W"]', 'Y', 'Presence of Y chromosome leads to male development.'),
+('Biology', 'Genetics', 'What is mutation?', '["Cell division", "Gene transfer", "Change in DNA sequence", "Protein synthesis"]', 'Change in DNA sequence', 'Mutation is a change in the DNA sequence that can affect traits.'),
+('Biology', 'Genetics', 'Which base pairs with adenine in DNA?', '["Cytosine", "Guanine", "Thymine", "Uracil"]', 'Thymine', 'In DNA, adenine pairs with thymine via hydrogen bonds.'),
+('Biology', 'Genetics', 'What is the genotype of a hybrid tall pea plant?', '["TT", "Tt", "tt", "tT"]', 'Tt', 'Hybrid tall plants have one dominant (T) and one recessive (t) allele.'),
+('Biology', 'Genetics', 'Which process forms gametes with half the chromosome number?', '["Mitosis", "Meiosis", "Fertilization", "Replication"]', 'Meiosis', 'Meiosis reduces chromosome number by half to produce gametes.');

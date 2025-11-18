@@ -1,0 +1,88 @@
+INSERT INTO question_bank (subject, topic, questionText, options, correctAnswer) VALUES
+('Math', 'Algebra', 'What is the value of x if 2x + 3 = 11?', '["3", "4", "5", "6"]', '4', 'Subtract 3 from both sides: 2x = 8, then divide by 2: x = 4.'),
+('Math', 'Algebra', 'Factorize: x² - 9', '["(x - 3)(x + 3)", "(x - 9)(x + 1)", "(x - 1)(x + 9)", "(x - 2)(x + 2)"]', '(x - 3)(x + 3)', 'This is a difference of squares: x² - 9 = (x - 3)(x + 3).'),
+('Math', 'Algebra', 'Simplify: (x + 2)(x - 2)', '["x² - 4", "x² + 4", "x² - 2x + 4", "x² + 2x - 4"]', 'x² - 4', 'This is a difference of squares: (x + 2)(x - 2) = x² - 4.'),
+('Math', 'Algebra', 'If x² = 49, then x = ?', '["±7", "7", "-7", "0"]', '±7', 'Taking square root of both sides: x = ±√49 = ±7.'),
+('Math', 'Algebra', 'What is the solution of 3x - 5 = 16?', '["7", "6", "5", "8"]', '7', 'Add 5: 3x = 21, then divide by 3: x = 7.'),
+('Math', 'Algebra', 'Which of the following is a quadratic equation?', '["x + 2 = 0", "x² + 3x + 2 = 0", "x³ - 1 = 0", "2x = 5"]', 'x² + 3x + 2 = 0', 'Quadratic equations have the form ax² + bx + c = 0.'),
+('Math', 'Algebra', 'What is the value of (a + b)²?', '["a² + b²", "a² + 2ab + b²", "a² - 2ab + b²", "a² - b²"]', 'a² + 2ab + b²', 'This is a standard algebraic identity: (a + b)² = a² + 2ab + b².'),
+('Math', 'Algebra', 'If x = 2 and y = 3, what is the value of xy + y²?', '["12", "15", "13", "9"]', '12', 'xy = 2×3 = 6, y² = 9, so total = 6 + 9 = 15.'),
+('Math', 'Algebra', 'Solve: x² - 5x + 6 = 0', '["x = 2 or 3", "x = -2 or -3", "x = 1 or 6", "x = -1 or -6"]', 'x = 2 or 3', 'Factor: (x - 2)(x - 3) = 0 ⇒ x = 2 or 3.'),
+('Math', 'Algebra', 'What is the degree of the polynomial 4x³ + 3x² - x + 7?', '["1", "2", "3", "4"]', '3', 'The highest power of x is 3, so the degree is 3.');
+INSERT INTO question_bank (subject, topic, questionText, options, correctAnswer) VALUES
+('Math', 'Trigonometry', 'What is the value of sin 90°?', '["0", "1", "0.5", "√3/2"]', '1', 'The sine of 90 degrees is 1 by definition of trigonometric ratios.'),
+('Math', 'Trigonometry', 'What is the value of cos 0°?', '["0", "1", "0.5", "√3/2"]', '1', 'The cosine of 0 degrees is 1.'),
+('Math', 'Trigonometry', 'What is tan 45° equal to?', '["0", "1", "√3", "1/√3"]', '1', 'tan 45° = sin 45° / cos 45° = 1.'),
+('Math', 'Trigonometry', 'What is the value of sin 30°?', '["1", "0.5", "√3/2", "1/√2"]', '0.5', 'sin 30° = 1/2.'),
+('Math', 'Trigonometry', 'Which identity is correct?', '["sin²θ + cos²θ = 1", "sin²θ - cos²θ = 1", "tan²θ + 1 = sec²θ", "cot²θ + 1 = csc²θ"]', 'sin²θ + cos²θ = 1', 'This is a fundamental Pythagorean identity in trigonometry.'),
+('Math', 'Trigonometry', 'What is the reciprocal of sin θ?', '["cos θ", "tan θ", "csc θ", "sec θ"]', 'csc θ', 'cosecant (csc θ) is the reciprocal of sine.'),
+('Math', 'Trigonometry', 'What is the value of cos 60°?', '["0.5", "1", "√3/2", "1/2"]', '0.5', 'cos 60° = 1/2.'),
+('Math', 'Trigonometry', 'What is the value of tan 0°?', '["0", "1", "Undefined", "∞"]', '0', 'tan 0° = sin 0° / cos 0° = 0.'),
+('Math', 'Trigonometry', 'Which of the following is undefined?', '["tan 90°", "sin 90°", "cos 0°", "tan 0°"]', 'tan 90°', 'tan 90° is undefined because cos 90° = 0, and division by zero is undefined.'),
+('Math', 'Trigonometry', 'What is the value of sin²θ + cos²θ?', '["0", "1", "2", "θ"]', '1', 'This identity holds true for all values of θ.');
+INSERT INTO question_bank (subject, topic, questionText, options, correctAnswer) VALUES
+('Math', 'Geometry', 'What is the sum of interior angles of a triangle?', '["180°", "360°", "90°", "270°"]', '180°', 'The sum of interior angles of any triangle is always 180°.'),
+('Math', 'Geometry', 'What is the area of a rectangle with length 5 cm and breadth 3 cm?', '["15 cm²", "8 cm²", "10 cm²", "18 cm²"]', '15 cm²', 'Area = length × breadth = 5 × 3 = 15 cm².'),
+('Math', 'Geometry', 'What is the perimeter of a square with side 4 cm?', '["8 cm", "12 cm", "16 cm", "20 cm"]', '16 cm', 'Perimeter = 4 × side = 4 × 4 = 16 cm.'),
+('Math', 'Geometry', 'What is the formula for area of a circle?', '["πr²", "2πr", "πd", "πr"]', 'πr²', 'Area of a circle is π times the square of its radius.'),
+('Math', 'Geometry', 'How many sides does a hexagon have?', '["5", "6", "7", "8"]', '6', 'A hexagon has six sides.'),
+('Math', 'Geometry', 'What is the measure of each angle in an equilateral triangle?', '["60°", "90°", "120°", "45°"]', '60°', 'Each angle in an equilateral triangle is 60°.'),
+('Math', 'Geometry', 'What is the volume of a cube with side 3 cm?', '["9 cm³", "27 cm³", "18 cm³", "36 cm³"]', '27 cm³', 'Volume = side³ = 3³ = 27 cm³.'),
+('Math', 'Geometry', 'What is the number of faces in a cube?', '["4", "6", "8", "12"]', '6', 'A cube has 6 square faces.'),
+('Math', 'Geometry', 'Which triangle has one angle greater than 90°?', '["Acute", "Right", "Obtuse", "Equilateral"]', 'Obtuse', 'An obtuse triangle has one angle greater than 90°.'),
+('Math', 'Geometry', 'What is the name of a polygon with 8 sides?', '["Hexagon", "Octagon", "Pentagon", "Heptagon"]', 'Octagon', 'A polygon with 8 sides is called an octagon.');
+INSERT INTO question_bank (subject, topic, questionText, options, correctAnswer) VALUES
+('Math', 'Mensuration', 'What is the area of a square with side 6 cm?', '["36 cm²", "12 cm²", "18 cm²", "30 cm²"]', '36 cm²', 'Area of square = side² = 6² = 36 cm².'),
+('Math', 'Mensuration', 'What is the volume of a cuboid with dimensions 4 cm × 3 cm × 2 cm?', '["24 cm³", "12 cm³", "18 cm³", "30 cm³"]', '24 cm³', 'Volume = length × breadth × height = 4 × 3 × 2 = 24 cm³.'),
+('Math', 'Mensuration', 'What is the surface area of a cube with side 5 cm?', '["125 cm²", "150 cm²", "100 cm²", "75 cm²"]', '150 cm²', 'Surface area = 6 × side² = 6 × 25 = 150 cm².'),
+('Math', 'Mensuration', 'What is the area of a triangle with base 10 cm and height 5 cm?', '["25 cm²", "50 cm²", "30 cm²", "40 cm²"]', '25 cm²', 'Area = ½ × base × height = ½ × 10 × 5 = 25 cm².'),
+('Math', 'Mensuration', 'What is the circumference of a circle with radius 7 cm?', '["44 cm", "22 cm", "14 cm", "28 cm"]', '44 cm', 'Circumference = 2πr = 2 × 22/7 × 7 = 44 cm.'),
+('Math', 'Mensuration', 'What is the area of a parallelogram with base 8 cm and height 4 cm?', '["32 cm²", "16 cm²", "24 cm²", "40 cm²"]', '32 cm²', 'Area = base × height = 8 × 4 = 32 cm².'),
+('Math', 'Mensuration', 'What is the volume of a cylinder with radius 3 cm and height 7 cm?', '["198 cm³", "66 cm³", "154 cm³", "132 cm³"]', '198 cm³', 'Volume = πr²h = 22/7 × 9 × 7 = 198 cm³.'),
+('Math', 'Mensuration', 'What is the area of a trapezium with bases 6 cm and 4 cm, height 5 cm?', '["25 cm²", "30 cm²", "20 cm²", "15 cm²"]', '25 cm²', 'Area = ½ × (sum of bases) × height = ½ × (6 + 4) × 5 = 25 cm².'),
+('Math', 'Mensuration', 'What is the volume of a cone with radius 3 cm and height 4 cm?', '["12 cm³", "36 cm³", "38 cm³", "48 cm³"]', '38 cm³', 'Volume = (1/3)πr²h = (1/3) × 22/7 × 9 × 4 ≈ 38 cm³.'),
+('Math', 'Mensuration', 'What is the surface area of a sphere with radius 5 cm?', '["314 cm²", "157 cm²", "100 cm²", "200 cm²"]', '314 cm²', 'Surface area = 4πr² = 4 × 22/7 × 25 = 314 cm².');
+INSERT INTO question_bank (subject, topic, questionText, options, correctAnswer) VALUES
+('Math', 'Statistics', 'What is the mean of 2, 4, 6, 8?', '["5", "6", "4", "7"]', '5', 'Mean = (2 + 4 + 6 + 8)/4 = 20/4 = 5.'),
+('Math', 'Statistics', 'What is the median of 3, 5, 7?', '["5", "3", "7", "6"]', '5', 'Median is the middle value when data is arranged in order.'),
+('Math', 'Statistics', 'What is the mode of 2, 3, 3, 4, 5?', '["2", "3", "4", "5"]', '3', 'Mode is the value that occurs most frequently.'),
+('Math', 'Statistics', 'What is the range of 10, 15, 20, 25?', '["15", "10", "5", "20"]', '15', 'Range = highest - lowest = 25 - 10 = 15.'),
+('Math', 'Statistics', 'What is the mean of 5, 10, 15, 20, 25?', '["15", "10", "20", "12"]', '15', 'Mean = (5 + 10 + 15 + 20 + 25)/5 = 75/5 = 15.'),
+('Math', 'Statistics', 'Which measure of central tendency is affected by extreme values?', '["Mean", "Median", "Mode", "Range"]', 'Mean', 'Mean is sensitive to outliers and extreme values.'),
+('Math', 'Statistics', 'What is the median of 1, 2, 3, 4, 5, 6?', '["3", "3.5", "4", "2"]', '3.5', 'Median = average of middle two values = (3 + 4)/2 = 3.5.'),
+('Math', 'Statistics', 'What is the mode of 1, 2, 2, 3, 4, 4, 4?', '["2", "3", "4", "1"]', '4', '4 appears most frequently, so it is the mode.'),
+('Math', 'Statistics', 'What is the range of 5, 7, 9, 11, 13?', '["8", "6", "4", "10"]', '8', 'Range = 13 - 5 = 8.'),
+('Math', 'Statistics', 'Which measure is best when data has outliers?', '["Mean", "Median", "Mode", "Range"]', 'Median', 'Median is less affected by extreme values and gives a better central value.');
+INSERT INTO question_bank (subject, topic, questionText, options, correctAnswer) VALUES
+('Math', 'Probability', 'What is the probability of getting a head when tossing a fair coin?', '["0", "0.5", "1", "2"]', '0.5', 'There are two equally likely outcomes: head or tail. Probability = 1/2 = 0.5.'),
+('Math', 'Probability', 'What is the probability of getting an even number when rolling a die?', '["1/2", "1/3", "1/6", "2/3"]', '1/2', 'Even numbers on a die: 2, 4, 6. Probability = 3/6 = 1/2.'),
+('Math', 'Probability', 'What is the probability of drawing a red card from a deck?', '["1/2", "1/4", "1/3", "1/13"]', '1/2', 'There are 26 red cards out of 52 total. Probability = 26/52 = 1/2.'),
+('Math', 'Probability', 'What is the probability of getting a 5 when rolling a die?', '["1/6", "1/5", "1/3", "1/2"]', '1/6', 'Only one favorable outcome (5) out of 6 possible outcomes.'),
+('Math', 'Probability', 'What is the probability of getting a vowel from the word "MATH"?', '["1/4", "1/2", "1/3", "0"]', '1/4', 'Only one vowel (A) out of 4 letters. Probability = 1/4.'),
+('Math', 'Probability', 'What is the probability of drawing a king from a deck of cards?', '["1/13", "1/4", "1/52", "4/52"]', '1/13', 'There are 4 kings in a deck of 52 cards. Probability = 4/52 = 1/13.'),
+('Math', 'Probability', 'What is the probability of getting a prime number on a die?', '["1/2", "2/3", "1/3", "5/6"]', '1/2', 'Prime numbers on a die: 2, 3, 5. Probability = 3/6 = 1/2.'),
+('Math', 'Probability', 'What is the probability of getting a tail when tossing a coin?', '["0", "0.5", "1", "2"]', '0.5', 'Probability of tail = 1/2 = 0.5.'),
+('Math', 'Probability', 'What is the probability of drawing an ace from a deck?', '["1/13", "1/4", "1/52", "4/52"]', '1/13', 'There are 4 aces in a deck of 52 cards. Probability = 4/52 = 1/13.'),
+('Math', 'Probability', 'What is the probability of getting a number less than 4 on a die?', '["1/2", "1/3", "2/3", "5/6"]', '1/2', 'Numbers less than 4: 1, 2, 3. Probability = 3/6 = 1/2.');
+INSERT INTO question_bank (subject, topic, questionText, options, correctAnswer) VALUES
+('Math', 'Linear Equations', 'Solve: 2x + 3 = 11', '["3", "4", "5", "6"]', '4', 'Subtract 3: 2x = 8, then divide by 2: x = 4.'),
+('Math', 'Linear Equations', 'Solve: x - 5 = 9', '["14", "4", "5", "9"]', '14', 'Add 5 to both sides: x = 14.'),
+('Math', 'Linear Equations', 'Solve: 3x = 15', '["5", "3", "15", "6"]', '5', 'Divide both sides by 3: x = 5.'),
+('Math', 'Linear Equations', 'Solve: 4x - 2 = 10', '["2", "3", "4", "5"]', '3', 'Add 2: 4x = 12, divide by 4: x = 3.'),
+('Math', 'Linear Equations', 'Solve: x/2 = 6', '["3", "6", "12", "2"]', '12', 'Multiply both sides by 2: x = 12.'),
+('Math', 'Linear Equations', 'Solve: 5x + 2 = 17', '["3", "4", "5", "6"]', '3', 'Subtract 2: 5x = 15, divide by 5: x = 3.'),
+('Math', 'Linear Equations', 'Solve: x + x = 10', '["5", "10", "20", "0"]', '5', 'Combine like terms: 2x = 10 ⇒ x = 5.'),
+('Math', 'Linear Equations', 'Solve: 7x - 14 = 0', '["2", "1", "0", "3"]', '2', 'Add 14: 7x = 14, divide by 7: x = 2.'),
+('Math', 'Linear Equations', 'Solve: x + 4 = x + 5', '["0", "1", "4", "5"]', 'No solution', 'Subtract x from both sides: 4 = 5 ⇒ contradiction.'),
+('Math', 'Linear Equations', 'Solve: 2(x - 3) = 8', '["4", "5", "6", "7"]', '7', 'Divide by 2: x - 3 = 4 ⇒ x = 7.');
+INSERT INTO question_bank (subject, topic, questionText, options, correctAnswer) VALUES
+('Math', 'Coordinate Geometry', 'What is the distance between points (0, 0) and (3, 4)?', '["5", "7", "6", "4"]', '5', 'Use distance formula: √[(3−0)² + (4−0)²] = √(9 + 16) = √25 = 5.'),
+('Math', 'Coordinate Geometry', 'What is the midpoint of (2, 4) and (6, 8)?', '["(4, 6)", "(3, 5)", "(5, 7)", "(2, 6)"]', '(4, 6)', 'Midpoint = ((2+6)/2, (4+8)/2) = (4, 6).'),
+('Math', 'Coordinate Geometry', 'What is the x-coordinate of the origin?', '["0", "1", "-1", "Undefined"]', '0', 'The origin is at (0, 0), so x = 0.'),
+('Math', 'Coordinate Geometry', 'What is the slope of a line passing through (1, 2) and (3, 6)?', '["2", "1", "3", "4"]', '2', 'Slope = (6−2)/(3−1) = 4/2 = 2.'),
+('Math', 'Coordinate Geometry', 'Which quadrant is the point (−3, 4) in?', '["I", "II", "III", "IV"]', 'II', 'Negative x and positive y ⇒ Quadrant II.'),
+('Math', 'Coordinate Geometry', 'What is the y-intercept of the line y = 2x + 3?', '["2", "3", "0", "1"]', '3', 'The y-intercept is the constant term = 3.'),
+('Math', 'Coordinate Geometry', 'What is the equation of x-axis?', '["x = 0", "y = 0", "x = y", "y = x + 1"]', 'y = 0', 'All points on the x-axis have y = 0.'),
+('Math', 'Coordinate Geometry', 'What is the equation of a line with slope 2 and y-intercept 5?', '["y = 2x + 5", "y = 5x + 2", "y = x + 2", "y = 2x - 5"]', 'y = 2x + 5', 'Standard form: y = mx + c, where m = slope, c = y-intercept.'),
+('Math', 'Coordinate Geometry', 'What is the distance between (1, 1) and (4, 5)?', '["5", "4", "3", "6"]', '5', 'Distance = √[(4−1)² + (5−1)²] = √(9 + 16) = √25 = 5.'),
+('Math', 'Coordinate Geometry', 'Which point lies on the y-axis?', '["(0, 3)", "(3, 0)", "(1, 1)", "(−2, 2)"]', '(0, 3)', 'Points on y-axis have x = 0.');

@@ -11,26 +11,39 @@ const {
 const auth = require('../middleware/auth');
 const router = express.Router();
 
-// Register
 router.post('/register', register);
 
-// Login
 router.post('/login', login);
-
-// Update Username
-router.put('/update-username', auth, updateUsername);
-
-// Update Password
-router.put('/update-password', auth, updatePassword);
-
-// Get Current User's Details
-router.get('/me', auth, me);
-
-// Request reset password
-router.post('/request-reset-password', requestResetPassword);
-
-// Reset password
+router.post('/forgot-password', requestResetPassword);
 router.post('/reset-password/:token', resetPassword);
 
+// Protected routes
+router.get('/me', auth, me);
+router.put('/update-username', auth, updateUsername);
+router.put('/update-password', auth, updatePassword);
+
+
+const { User } = require('../models');
+
+router.get('/debug/admin', async (req, res) => {
+  try {
+    const admin = await User.findOne({ where: { email: 'meadmin@gmail.com' } });
+    if (!admin) return res.status(404).json({ msg: 'Admin not found' });
+
+    res.json({
+      username: admin.username,
+      email: admin.email,
+      role: admin.role,
+      password: admin.password, // ✅ Should be a long hashed string
+    });
+  } catch (err) {
+    console.error('Debug error:', err);
+    res.status(500).json({ msg: 'Server error' });
+  }
+});
+
+router.get("/ping", (req, res) => {
+  res.send("✅ User router is active");
+});
 
 module.exports = router;

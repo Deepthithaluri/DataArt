@@ -36,15 +36,15 @@ const AboutUs = () => {
     const faqData = [
         {
             question: "How do I create a quiz?",
-            answer: "To create a quiz, sign in to your QuizMaster account, navigate to the 'Create Quiz' section, and follow the on-screen instructions. You can add questions, set a time limit, and customize your quiz.",
+            answer: "To create a quiz, sign in to your ScoreMax account, navigate to the 'Create Quiz' section, and follow the on-screen instructions. You can add questions, set a time limit, and customize your quiz.",
         },
         {
             question: "Can I track my quiz performance?",
-            answer: "Yes, QuizMaster provides detailed statistics on your quizzes. You can view your performance, accuracy, and time taken for each quiz in the 'My Results' section.",
+            answer: "Yes, ScoreMax provides detailed statistics on your quizzes. You can view your performance, accuracy, and time taken for each quiz in the 'My Results' section.",
         },
         {
             question: "Is there a limit to the number of quizzes I can create?",
-            answer: "No, you can create as many quizzes as you like. QuizMaster is designed to give you full flexibility to manage and organize your quizzes.",
+            answer: "No, you can create as many quizzes as you like. ScoreMax is designed to give you full flexibility to manage and organize your quizzes.",
         },
         {
             question: "How do I reset my password?",
@@ -52,7 +52,7 @@ const AboutUs = () => {
         },
         {
             question: "Can I collaborate with others on quizzes?",
-            answer: "At the moment, QuizMaster is designed for individual users to create and manage their quizzes. Collaborative features may be introduced in future updates.",
+            answer: "At the moment, ScoreMax is designed for individual users to create and manage their quizzes. Collaborative features may be introduced in future updates.",
         },
         {
             question: "How do I report a bug or request a feature?",
@@ -102,15 +102,15 @@ const AboutUs = () => {
                             <div
                                 className={`forScroll p-[10px] bg-cyan-100 rounded-lg text-center w-[90%] h-[50%] overflow-scroll font-semibold font-sans text-gray-700 text-xl`}
                             >
-                                Welcome to QuizMaster, your go-to platform for
-                                everything related to quizzes! At QuizMaster, we
+                                Welcome to ScoreMax, your go-to platform for
+                                everything related to quizzes! At ScoreMax, we
                                 believe in the power of learning through fun and
                                 interactive experiences. Our application allows
                                 users to create, manage, and take quizzes on a
                                 wide range of topics. Whether you're a student
                                 looking to test your knowledge, a teacher aiming
                                 to create engaging learning tools, or simply a
-                                quiz enthusiast, QuizMaster has something for
+                                quiz enthusiast, ScoreMax has something for
                                 you. We focus on user experience and
                                 performance, offering features like real-time
                                 progress tracking, detailed statistics, and

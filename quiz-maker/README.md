@@ -1,8 +1,8 @@
-# QuizMaster Frontend
+# ScoreMax Frontend
 
 ## Description
 
-QuizMaster is a comprehensive quiz application that allows users to create, take, and manage quizzes. The frontend is built using React and provides a smooth and interactive user experience. This application includes features such as user authentication, quiz management, progress tracking, and viewing detailed quiz statistics.
+ScoreMax is a comprehensive quiz application that allows users to create, take, and manage quizzes. The frontend is built using React and provides a smooth and interactive user experience. This application includes features such as user authentication, quiz management, progress tracking, and viewing detailed quiz statistics.
 
 ## Features
 
@@ -16,7 +16,7 @@ QuizMaster is a comprehensive quiz application that allows users to create, take
 ## Folder Structure
 
 ```
-QuizMaster
+ScoreMax
 ├── node_modules
 ├── public
 ├── src
@@ -110,7 +110,7 @@ QuizMaster
 
 ## Environment Variables
 
-- **REACT_APP_BACKEND_URL:** `http://localhost:5000/api`
+- **REACT_APP_BACKEND_URL:** `http://localhost:5001/api`
 - **REACT_APP_FRONTEND_URL:** `http://localhost:3000`
 
 ## Usage
@@ -129,5 +129,5 @@ QuizMaster
 
 ## Notes
 
-- Ensure the backend server is running and connected to the MongoDB database for full functionality.
+- Ensure the backend server is running and connected to the MySQL database for full functionality.
 - Customize environment variables as needed for your setup.

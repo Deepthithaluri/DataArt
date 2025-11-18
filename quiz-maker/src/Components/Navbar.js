@@ -11,7 +11,6 @@ const Navbar = () => {
 
   const menuItems = [
     { name: 'About Us', to: '/aboutus', icon: Info },
-    { name: 'User Guide', to: '/user-guide', icon: BookOpen },
   ];
 
   return (

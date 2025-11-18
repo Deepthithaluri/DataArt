@@ -1,6 +1,6 @@
-# QuizMaster
+# ScoreMax
 
-QuizMaster is a comprehensive quiz application that allows users to create, take, and manage quizzes. The project is built using Node.js, Express, MongoDB for the backend, and React for the frontend. It provides features such as user authentication, quiz management, progress tracking, and viewing detailed quiz statistics.
+ScoreMax is a comprehensive quiz application that allows users to create, take, and manage quizzes. The project is built using Node.js, Express, MySQL for the backend, and React for the frontend. It provides features such as user authentication, quiz management, progress tracking, and viewing detailed quiz statistics.
 
 ## Table of Contents
 
@@ -32,7 +32,7 @@ QuizMaster is a comprehensive quiz application that allows users to create, take
 ## Folder Structure
 
 ```
-QuizMaster
+ScoreMax
 ├── backend
 │   ├── middleware
 │   ├── models
@@ -93,7 +93,7 @@ QuizMaster
 
 ### Description
 
-The backend of QuizMaster is built using Node.js and Express, and it interacts with a MongoDB database. It handles user authentication, quiz management, and progress tracking.
+The backend of ScoreMax is built using Node.js and Express, and it interacts with a MySQL database. It handles user authentication, quiz management, and progress tracking.
 
 ### Routes
 
@@ -115,7 +115,7 @@ The backend of QuizMaster is built using Node.js and Express, and it interacts w
 ### Environment Variables
 
 - `PORT`: Port number for the server
-- `MONGO_URI`: MongoDB connection string
+- `MYSQL_URI`: MYSQLDB connection string
 - `JWT_SECRET`: Secret key for JWT
 - `EMAIL_USER`: Email address for notifications
 - `EMAIL_PASSWORD`: Password for the email account
@@ -133,7 +133,7 @@ The backend of QuizMaster is built using Node.js and Express, and it interacts w
 
 ### Description
 
-The frontend of QuizMaster is built using React. It provides a user-friendly interface for managing and taking quizzes.
+The frontend of ScoreMax is built using React. It provides a user-friendly interface for managing and taking quizzes.
 
 ### Pages and Components
 

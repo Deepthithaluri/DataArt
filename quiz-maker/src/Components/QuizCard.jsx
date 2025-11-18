@@ -43,38 +43,50 @@ const StyledButton = styled(Button)({
   marginRight: '10px',
 });
 
-const QuizCard = ({ title,quiz_id, lastUpdated, numberOfQuestions, timeLimit, numberOfTakenBy, onDetailsClick }) => {
+const QuizCard = ({
+  title,
+  quiz_id,
+  lastUpdated,
+  numberOfQuestions,
+  timeLimit,
+  numberOfTakenBy,
+  onDetailsClick,
+}) => {
   const shareQuiz = () => {
     copyToClipboard();
     if (navigator.share) {
-      
       browsershare();
-    } 
-    
-    
-
-    // alert('Quiz details copied to clipboard!');
+    }
   };
+
   const copyToClipboard = () => {
-    
-    const quizLink = process.env.REACT_APP_FRONTEND_URL+"/attempt/"+quiz_id; // Replace with actual quiz link
+    const quizLink = `${process.env.REACT_APP_FRONTEND_URL}/attempt/${quiz_id}`;
     const message = `Check out this quiz!\nQuiz ID: ${quiz_id}\nQuiz Link: ${quizLink}`;
     navigator.clipboard.writeText(message);
-    //share this message to other users
     alert('Quiz details copied to clipboard!');
   };
 
+  const browsershare = () => {
+    const quizLink = `${process.env.REACT_APP_FRONTEND_URL}/attempt/${quiz_id}`;
+    navigator
+      .share({
+        title: 'Check out this quiz!',
+        text: `Quiz ID: ${quiz_id}`,
+        url: quizLink,
+      })
+      .then(() => console.log('Successful share'))
+      .catch((error) => console.log('Error sharing:', error));
+  };
 
-  const browsershare=()=>{
-    const quizLink = process.env.REACT_APP_FRONTEND_URL+"/attempt/"+quiz_id;
-    navigator.share({
-      title: 'Check out this quiz!',
-      text: `Quiz ID: ${quiz_id}`,
-      url: quizLink,
-    })
-    .then(() => console.log('Successful share'))
-    .catch((error) => console.log('Error sharing:', error));
-  }
+  const takeTest = () => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      localStorage.setItem('attemptedRoute', JSON.stringify({ pathURL: `attempt/${quiz_id}` }));
+      window.location.href = '/login';
+    } else {
+      window.location.href = `${process.env.REACT_APP_FRONTEND_URL}/attempt/${quiz_id}`;
+    }
+  };
 
   return (
     <StyledCard>
@@ -84,9 +96,33 @@ const QuizCard = ({ title,quiz_id, lastUpdated, numberOfQuestions, timeLimit, nu
         <Detail>Total Questions: {numberOfQuestions}</Detail>
         <Detail>Time Limit: {timeLimit} minutes</Detail>
         <Detail>Participants: {numberOfTakenBy}</Detail>
-        <div className='buttons_container'>
-          <StyledButton variant="contained" onClick={onDetailsClick}>Details &nbsp; <iconify-icon icon="gg:details-more"></iconify-icon> </StyledButton>
-          <StyledButton variant="contained" onClick={shareQuiz}>Share &nbsp;<iconify-icon icon="material-symbols-light:share-outline"></iconify-icon> </StyledButton>
+        <div className="buttons_container">
+          <StyledButton
+            variant="contained"
+            onClick={onDetailsClick}
+            aria-label={`View details for ${title}`}
+          >
+            Details &nbsp;
+            <iconify-icon icon="gg:details-more"></iconify-icon>
+          </StyledButton>
+
+          <StyledButton
+            variant="contained"
+            onClick={shareQuiz}
+            aria-label={`Share quiz ${title}`}
+          >
+            Share &nbsp;
+            <iconify-icon icon="material-symbols-light:share-outline"></iconify-icon>
+          </StyledButton>
+
+          <StyledButton
+            variant="contained"
+            onClick={takeTest}
+            aria-label={`Take test for ${title}`}
+          >
+            Take Test &nbsp;
+            <iconify-icon icon="mdi:play-circle-outline"></iconify-icon>
+          </StyledButton>
         </div>
       </StyledCardContent>
     </StyledCard>
@@ -98,13 +134,15 @@ export default QuizCard;
 function formatDate(date) {
   const day = date.getDate();
   const ordinalSuffix = getOrdinalSuffix(day);
-  const month = date.toLocaleString("default", { month: "short" });
+  const month = date.toLocaleString('default', { month: 'short' });
   const year = date.getFullYear();
   return `${day}${ordinalSuffix} ${month} ${year}`;
 }
 
 function getOrdinalSuffix(day) {
-  const suffixes = ["st", "nd", "rd", "th"];
+  const suffixes = ['st', 'nd', 'rd', 'th'];
   const remainder = day % 10;
-  return (day < 10 || day > 20) ? (suffixes[remainder === 1 ? 0 : remainder === 2 ? 1 : remainder === 3 ? 2 : 3]) : suffixes[3];
+  return day < 10 || day > 20
+    ? suffixes[remainder === 1 ? 0 : remainder === 2 ? 1 : remainder === 3 ? 2 : 3]
+    : suffixes[3];
 }

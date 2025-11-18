@@ -1,6 +1,25 @@
 {
   "dependencies": {
     "jwt-decode": "^4.0.0",
+    "papaparse": "^5.5.3",
     "typeit-react": "^2.7.3"
-  }
+  },
+  "name": "quiz-w1",
+  "version": "1.0.0",
+  "description": "ScoreMax is a comprehensive quiz application that allows users to create, take, and manage quizzes. The project is built using Node.js, Express, MySQL for the backend, and React for the frontend. It provides features such as user authentication, quiz management, progress tracking, and viewing detailed quiz statistics.",
+  "main": "fix-csv.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vishalverma9572/ScoreMax.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vishalverma9572/ScoreMax/issues"
+  },
+  "homepage": "https://github.com/vishalverma9572/ScoreMax#readme"
 }

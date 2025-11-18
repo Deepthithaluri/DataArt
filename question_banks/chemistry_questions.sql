@@ -1,0 +1,88 @@
+INSERT INTO question_bank (subject, topic, questionText, options, correctAnswer) VALUES
+('Chemistry', 'Atomic Structure', 'Who discovered the electron?', '["Rutherford", "J.J. Thomson", "Bohr", "Chadwick"]', 'J.J. Thomson', 'J.J. Thomson discovered the electron using cathode ray experiments.'),
+('Chemistry', 'Atomic Structure', 'Which subatomic particle has no charge?', '["Proton", "Electron", "Neutron", "Positron"]', 'Neutron', 'Neutrons are neutral particles found in the nucleus.'),
+('Chemistry', 'Atomic Structure', 'What is the atomic number of an element?', '["Number of neutrons", "Number of protons", "Number of electrons", "Mass number"]', 'Number of protons', 'Atomic number is defined by the number of protons in the nucleus.'),
+('Chemistry', 'Atomic Structure', 'Which model of the atom was proposed by Rutherford?', '["Plum pudding model", "Nuclear model", "Bohr model", "Quantum model"]', 'Nuclear model', 'Rutherford proposed the nuclear model with a dense nucleus and orbiting electrons.'),
+('Chemistry', 'Atomic Structure', 'What is the charge of a proton?', '["+1", "-1", "0", "+2"]', '+1', 'Protons carry a positive charge of +1.'),
+('Chemistry', 'Atomic Structure', 'Which particle determines the chemical properties of an atom?', '["Neutron", "Proton", "Electron", "Nucleus"]', 'Electron', 'Electrons in the outer shell influence chemical behavior.'),
+('Chemistry', 'Atomic Structure', 'What is the mass number of an atom?', '["Number of protons", "Number of neutrons", "Sum of protons and neutrons", "Number of electrons"]', 'Sum of protons and neutrons', 'Mass number is the total of protons and neutrons in the nucleus.'),
+('Chemistry', 'Atomic Structure', 'Which scientist proposed the planetary model of the atom?', '["Thomson", "Bohr", "Rutherford", "Chadwick"]', 'Bohr', 'Bohr suggested electrons orbit the nucleus in fixed energy levels.'),
+('Chemistry', 'Atomic Structure', 'What is the maximum number of electrons in the first shell?', '["2", "8", "18", "32"]', '2', 'The first shell (K-shell) can hold a maximum of 2 electrons.'),
+('Chemistry', 'Atomic Structure', 'Which quantum number describes the shape of orbitals?', '["Principal", "Azimuthal", "Magnetic", "Spin"]', 'Azimuthal', 'Azimuthal quantum number (l) defines the shape of orbitals.');
+INSERT INTO question_bank (subject, topic, questionText, options, correctAnswer) VALUES
+('Chemistry', 'Periodic Table', 'Who created the modern periodic table?', '["Mendeleev", "Newlands", "Moseley", "Bohr"]', 'Moseley', 'Moseley arranged elements by atomic number, forming the modern periodic table.'),
+('Chemistry', 'Periodic Table', 'What is the atomic number of oxygen?', '["6", "7", "8", "9"]', '8', 'Oxygen has 8 protons, so its atomic number is 8.'),
+('Chemistry', 'Periodic Table', 'Which group contains noble gases?', '["Group 1", "Group 2", "Group 17", "Group 18"]', 'Group 18', 'Group 18 elements are inert and known as noble gases.'),
+('Chemistry', 'Periodic Table', 'Which element is in period 2 and group 1?', '["Hydrogen", "Lithium", "Sodium", "Potassium"]', 'Lithium', 'Lithium is the alkali metal in period 2 and group 1.'),
+('Chemistry', 'Periodic Table', 'What is the trend of atomic radius across a period?', '["Increases", "Decreases", "Remains constant", "First increases then decreases"]', 'Decreases', 'Atomic radius decreases across a period due to increased nuclear charge.'),
+('Chemistry', 'Periodic Table', 'Which element has the highest electronegativity?', '["Oxygen", "Fluorine", "Nitrogen", "Chlorine"]', 'Fluorine', 'Fluorine is the most electronegative element.'),
+('Chemistry', 'Periodic Table', 'What is the valency of nitrogen?', '["1", "2", "3", "5"]', '3', 'Nitrogen has 5 valence electrons and needs 3 more to complete its octet.'),
+('Chemistry', 'Periodic Table', 'Which block contains transition metals?', '["s-block", "p-block", "d-block", "f-block"]', 'd-block', 'Transition metals are found in the d-block of the periodic table.'),
+('Chemistry', 'Periodic Table', 'Which element is a metalloid?', '["Carbon", "Silicon", "Oxygen", "Sodium"]', 'Silicon', 'Silicon shows properties of both metals and non-metals.'),
+('Chemistry', 'Periodic Table', 'What is the chemical symbol for potassium?', '["P", "Pt", "Po", "K"]', 'K', 'Potassium is represented by the symbol K.');
+INSERT INTO question_bank (subject, topic, questionText, options, correctAnswer) VALUES
+('Chemistry', 'Chemical Reactions', 'What type of reaction is 2Mg + O₂ → 2MgO?', '["Combination", "Decomposition", "Displacement", "Neutralization"]', 'Combination', 'Two reactants combine to form a single product, making it a combination reaction.'),
+('Chemistry', 'Chemical Reactions', 'Which reaction releases heat?', '["Endothermic", "Exothermic", "Neutralization", "Photochemical"]', 'Exothermic', 'Exothermic reactions release heat to the surroundings.'),
+('Chemistry', 'Chemical Reactions', 'What is the product of acid and base reaction?', '["Salt", "Water", "Gas", "Salt and water"]', 'Salt and water', 'Acid-base reactions form salt and water — a neutralization reaction.'),
+('Chemistry', 'Chemical Reactions', 'Which gas is evolved when zinc reacts with dilute HCl?', '["Oxygen", "Hydrogen", "Carbon dioxide", "Nitrogen"]', 'Hydrogen', 'Zinc reacts with HCl to release hydrogen gas.'),
+('Chemistry', 'Chemical Reactions', 'What type of reaction is CaCO₃ → CaO + CO₂?', '["Combination", "Decomposition", "Displacement", "Double displacement"]', 'Decomposition', 'A single compound breaks into two products, typical of decomposition.'),
+('Chemistry', 'Chemical Reactions', 'Which reaction involves exchange of ions?', '["Combination", "Displacement", "Double displacement", "Decomposition"]', 'Double displacement', 'Double displacement reactions involve exchange of ions between compounds.'),
+('Chemistry', 'Chemical Reactions', 'What is rust chemically?', '["FeO", "Fe₂O₃", "Fe₃O₄", "Fe₂O₃·xH₂O"]', 'Fe₂O₃·xH₂O', 'Rust is hydrated iron(III) oxide formed by oxidation of iron.'),
+('Chemistry', 'Chemical Reactions', 'Which reaction is used in photography?', '["Redox", "Precipitation", "Photochemical", "Neutralization"]', 'Photochemical', 'Photochemical reactions occur due to light, used in photography.'),
+('Chemistry', 'Chemical Reactions', 'Which reaction is 2KBr + Cl₂ → 2KCl + Br₂?', '["Displacement", "Combination", "Decomposition", "Double displacement"]', 'Displacement', 'Chlorine displaces bromine from potassium bromide — a displacement reaction.'),
+('Chemistry', 'Chemical Reactions', 'What is the color change in turmeric when exposed to base?', '["Yellow to red", "Red to yellow", "Yellow to blue", "No change"]', 'Yellow to red', 'Turmeric turns red in basic medium due to its natural indicator properties.');
+INSERT INTO question_bank (subject, topic, questionText, options, correctAnswer) VALUES
+('Chemistry', 'Acids & Bases', 'Which acid is present in lemon?', '["Acetic acid", "Citric acid", "Lactic acid", "Sulfuric acid"]', 'Citric acid', 'Citric acid gives lemons their sour taste.'),
+('Chemistry', 'Acids & Bases', 'What is the pH of a neutral solution?', '["0", "7", "14", "1"]', '7', 'A neutral solution has a pH of 7.'),
+('Chemistry', 'Acids & Bases', 'Which of the following is a strong base?', '["NaOH", "NH₃", "CH₃COOH", "HCl"]', 'NaOH', 'Sodium hydroxide (NaOH) is a strong base.'),
+('Chemistry', 'Acids & Bases', 'Which indicator turns red in acidic solution?', '["Phenolphthalein", "Methyl orange", "Litmus", "Turmeric"]', 'Methyl orange', 'Methyl orange turns red in acidic medium.'),
+('Chemistry', 'Acids & Bases', 'Which of the following is a weak acid?', '["HCl", "H₂SO₄", "CH₃COOH", "HNO₃"]', 'CH₃COOH', 'Acetic acid (CH₃COOH) is a weak acid.'),
+('Chemistry', 'Acids & Bases', 'What is formed when an acid reacts with a base?', '["Salt", "Water", "Gas", "Salt and water"]', 'Salt and water', 'Acid-base reactions produce salt and water — a neutralization reaction.'),
+('Chemistry', 'Acids & Bases', 'Which of the following is a natural indicator?', '["Phenolphthalein", "Methyl orange", "Litmus", "Universal indicator"]', 'Litmus', 'Litmus is derived from lichens and is a natural pH indicator.'),
+('Chemistry', 'Acids & Bases', 'What is the pH range of acids?', '["0–6", "7–14", "8–14", "6–8"]', '0–6', 'Acids have a pH less than 7.'),
+('Chemistry', 'Acids & Bases', 'Which acid is used in car batteries?', '["Nitric acid", "Sulfuric acid", "Hydrochloric acid", "Acetic acid"]', 'Sulfuric acid', 'Sulfuric acid is used in lead-acid batteries.'),
+('Chemistry', 'Acids & Bases', 'Which base is used in antacids?', '["NaOH", "Mg(OH)₂", "KOH", "Ca(OH)₂"]', 'Mg(OH)₂', 'Magnesium hydroxide neutralizes stomach acid and is used in antacids.');
+INSERT INTO question_bank (subject, topic, questionText, options, correctAnswer) VALUES
+('Chemistry', 'Metals & Non-metals', 'Which of the following is a metal?', '["Sulfur", "Oxygen", "Iron", "Carbon"]', 'Iron', 'Iron is a metallic element with properties like conductivity and malleability.'),
+('Chemistry', 'Metals & Non-metals', 'Which metal is liquid at room temperature?', '["Mercury", "Sodium", "Aluminium", "Copper"]', 'Mercury', 'Mercury is the only metal that exists as a liquid at room temperature.'),
+('Chemistry', 'Metals & Non-metals', 'Which non-metal is essential for respiration?', '["Nitrogen", "Oxygen", "Carbon", "Hydrogen"]', 'Oxygen', 'Oxygen is required for aerobic respiration in living organisms.'),
+('Chemistry', 'Metals & Non-metals', 'Which property is common to metals?', '["Brittleness", "Dullness", "Malleability", "Poor conductivity"]', 'Malleability', 'Metals can be hammered into thin sheets — a property called malleability.'),
+('Chemistry', 'Metals & Non-metals', 'Which gas is released when metal reacts with acid?', '["Oxygen", "Hydrogen", "Carbon dioxide", "Nitrogen"]', 'Hydrogen', 'Metals react with acids to release hydrogen gas.'),
+('Chemistry', 'Metals & Non-metals', 'Which metal is most reactive?', '["Gold", "Copper", "Sodium", "Silver"]', 'Sodium', 'Sodium is highly reactive and stored in kerosene to prevent reaction with air.'),
+('Chemistry', 'Metals & Non-metals', 'Which non-metal is used in water purification?', '["Carbon", "Chlorine", "Sulfur", "Nitrogen"]', 'Chlorine', 'Chlorine is used to disinfect water and kill microbes.'),
+('Chemistry', 'Metals & Non-metals', 'Which metal is used in making electrical wires?', '["Iron", "Aluminium", "Copper", "Zinc"]', 'Copper', 'Copper is a good conductor and is commonly used in wiring.'),
+('Chemistry', 'Metals & Non-metals', 'Which non-metal is used in fertilizers?', '["Oxygen", "Nitrogen", "Carbon", "Hydrogen"]', 'Nitrogen', 'Nitrogen is a key nutrient in fertilizers for plant growth.'),
+('Chemistry', 'Metals & Non-metals', 'Which metal is used in thermometers?', '["Lead", "Mercury", "Zinc", "Tin"]', 'Mercury', 'Mercury expands uniformly with temperature and is used in thermometers.');
+INSERT INTO question_bank (subject, topic, questionText, options, correctAnswer) VALUES
+('Chemistry', 'Carbon Compounds', 'Which compound is used in vinegar?', '["Methanol", "Ethanol", "Acetic acid", "Formic acid"]', 'Acetic acid', 'Acetic acid gives vinegar its sour taste and pungent smell.'),
+('Chemistry', 'Carbon Compounds', 'What is the general formula for alkanes?', '["CnH2n", "CnH2n+2", "CnH2n-2", "CnHn"]', 'CnH2n+2', 'Alkanes are saturated hydrocarbons with the formula CnH2n+2.'),
+('Chemistry', 'Carbon Compounds', 'Which functional group is present in alcohols?', '["–OH", "–COOH", "–CHO", "–NH₂"]', '–OH', 'Alcohols contain the hydroxyl (–OH) functional group.'),
+('Chemistry', 'Carbon Compounds', 'Which compound is used in alcoholic beverages?', '["Methanol", "Ethanol", "Propanol", "Butanol"]', 'Ethanol', 'Ethanol is the active ingredient in alcoholic drinks.'),
+('Chemistry', 'Carbon Compounds', 'Which compound is used in soaps?', '["Methane", "Ethanoic acid", "Ethanol", "Propane"]', 'Ethanoic acid', 'Ethanoic acid (acetic acid) is used in soap production.'),
+('Chemistry', 'Carbon Compounds', 'Which hydrocarbon is unsaturated?', '["Ethane", "Methane", "Ethene", "Propane"]', 'Ethene', 'Ethene contains a double bond, making it unsaturated.'),
+('Chemistry', 'Carbon Compounds', 'Which compound is used as fuel in gas stoves?', '["Methane", "Ethane", "Butane", "Propane"]', 'Butane', 'Butane is commonly used as LPG fuel in gas stoves.'),
+('Chemistry', 'Carbon Compounds', 'Which polymer is used in plastic bottles?', '["PVC", "Polyethylene", "Polystyrene", "Nylon"]', 'Polyethylene', 'Polyethylene is widely used in plastic packaging and bottles.'),
+('Chemistry', 'Carbon Compounds', 'Which compound is used in perfumes?', '["Methanol", "Esters", "Ethanol", "Acids"]', 'Esters', 'Esters have pleasant smells and are used in perfumes and flavorings.'),
+('Chemistry', 'Carbon Compounds', 'Which compound is formed by dehydration of ethanol?', '["Ethene", "Methane", "Acetylene", "Propene"]', 'Ethene', 'Ethanol loses water to form ethene in a dehydration reaction.');
+INSERT INTO question_bank (subject, topic, questionText, options, correctAnswer) VALUES
+('Chemistry', 'States of Matter', 'Which state of matter has a definite shape and volume?', '["Solid", "Liquid", "Gas", "Plasma"]', 'Solid', 'Solids have fixed shape and volume due to tightly packed particles.'),
+('Chemistry', 'States of Matter', 'Which state of matter has no fixed shape but definite volume?', '["Solid", "Liquid", "Gas", "Plasma"]', 'Liquid', 'Liquids take the shape of the container but retain volume.'),
+('Chemistry', 'States of Matter', 'Which process converts solid directly into gas?', '["Condensation", "Evaporation", "Sublimation", "Melting"]', 'Sublimation', 'Sublimation is the direct conversion of solid to gas without becoming liquid.'),
+('Chemistry', 'States of Matter', 'What is the boiling point of water at sea level?', '["90°C", "100°C", "110°C", "120°C"]', '100°C', 'Water boils at 100°C under normal atmospheric pressure.'),
+('Chemistry', 'States of Matter', 'Which state of matter has the highest kinetic energy?', '["Solid", "Liquid", "Gas", "Plasma"]', 'Gas', 'Gas particles move freely and have the highest kinetic energy.'),
+('Chemistry', 'States of Matter', 'Which process converts liquid into gas?', '["Condensation", "Evaporation", "Freezing", "Sublimation"]', 'Evaporation', 'Evaporation is the process of liquid turning into vapor.'),
+('Chemistry', 'States of Matter', 'Which factor affects the rate of evaporation?', '["Temperature", "Surface area", "Humidity", "All of these"]', 'All of these', 'Evaporation rate depends on temperature, surface area, and humidity.'),
+('Chemistry', 'States of Matter', 'What is the process of gas turning into liquid?', '["Condensation", "Evaporation", "Sublimation", "Melting"]', 'Condensation', 'Condensation is the change of gas to liquid.'),
+('Chemistry', 'States of Matter', 'Which state of matter is compressible?', '["Solid", "Liquid", "Gas", "None"]', 'Gas', 'Gases are compressible due to large intermolecular spaces.'),
+('Chemistry', 'States of Matter', 'Which state of matter exists in stars?', '["Solid", "Liquid", "Gas", "Plasma"]', 'Plasma', 'Plasma is a high-energy state found in stars and lightning.');
+INSERT INTO question_bank (subject, topic, questionText, options, correctAnswer) VALUES
+('Chemistry', 'Environmental Chemistry', 'Which gas is responsible for global warming?', '["Oxygen", "Carbon dioxide", "Nitrogen", "Hydrogen"]', 'Carbon dioxide', 'Carbon dioxide traps heat in the atmosphere, contributing to global warming.'),
+('Chemistry', 'Environmental Chemistry', 'Which pollutant causes acid rain?', '["CO₂", "SO₂", "O₂", "CH₄"]', 'SO₂', 'Sulfur dioxide reacts with water to form sulfuric acid, leading to acid rain.'),
+('Chemistry', 'Environmental Chemistry', 'Which layer protects Earth from UV radiation?', '["Troposphere", "Stratosphere", "Ozone layer", "Ionosphere"]', 'Ozone layer', 'The ozone layer absorbs harmful ultraviolet rays from the sun.'),
+('Chemistry', 'Environmental Chemistry', 'Which gas is a major component of smog?', '["Ozone", "Nitrogen", "Carbon monoxide", "Methane"]', 'Ozone', 'Ground-level ozone is a key component of photochemical smog.'),
+('Chemistry', 'Environmental Chemistry', 'Which chemical is used to treat drinking water?', '["Chlorine", "Ammonia", "Sulfur", "Methane"]', 'Chlorine', 'Chlorine disinfects water by killing harmful microorganisms.'),
+('Chemistry', 'Environmental Chemistry', 'Which pollutant is released from vehicles?', '["SO₂", "CO", "NO₂", "All of these"]', 'All of these', 'Vehicles emit carbon monoxide, nitrogen dioxide, and sulfur dioxide.'),
+('Chemistry', 'Environmental Chemistry', 'Which gas is responsible for ozone layer depletion?', '["CO₂", "CFCs", "NO₂", "SO₂"]', 'CFCs', 'Chlorofluorocarbons (CFCs) break down ozone molecules in the stratosphere.'),
+('Chemistry', 'Environmental Chemistry', 'Which process removes solid waste from sewage?', '["Filtration", "Sedimentation", "Chlorination", "Distillation"]', 'Sedimentation', 'Sedimentation allows solid particles to settle at the bottom.'),
+('Chemistry', 'Environmental Chemistry', 'Which pollutant is most harmful to aquatic life?', '["Oil", "Plastic", "Heavy metals", "All of these"]', 'All of these', 'Oil, plastic, and heavy metals all severely impact aquatic ecosystems.'),
+('Chemistry', 'Environmental Chemistry', 'Which gas is used in fire extinguishers?', '["Oxygen", "Carbon dioxide", "Nitrogen", "Hydrogen"]', 'Carbon dioxide', 'CO₂ displaces oxygen and cools the fire, making it effective in extinguishers.');

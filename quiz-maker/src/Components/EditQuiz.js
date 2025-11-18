@@ -11,18 +11,18 @@ const EditQuiz = () => {
       localStorage.setItem("attemptedRoute", JSON.stringify({pathURL}));
       window.location.href = "/login";
     }
-    document.title = 'Edit Quiz | QuizMaster';
+    document.title = 'Edit Quiz | ScoreMax';
 
   
   const { quiz_id } = useParams();
 
-  // Placeholder quiz data, fetch actual data using quiz_id
+  // Placeholder quiz data, fetch actual data using quizId
   const [quizData, setQuizData] = useState({
     title: '',
     timeLimit: 0,
     questions: [
       {
-        _id: '1',
+        id: '1',
         question: 'Sample Question',
         options: ['Option A', 'Option B'],
         correctAnswer: 'Option A',

@@ -20,29 +20,32 @@ const TakeTestPage = () => {
 
   useEffect(() => {
     const pathURL = window.location.pathname.split("/").join('/').substring(1);
-    if (
-      localStorage.getItem("token") === null ||
-      localStorage.getItem("token") === undefined
-    ) {
+    if (!localStorage.getItem("token")) {
       localStorage.setItem("attemptedRoute", JSON.stringify({ pathURL }));
       window.location.href = "/login";
     }
-    const fetchStatus = async () => {
-      try {
-        const url = `${process.env.REACT_APP_BACKEND_URL}/quizzes/status/${quiz_id}`;
-        const response = await fetch(url, {
-          headers: {
-            'x-auth-token': localStorage.getItem('token'),
-          },
-        });
 
-        const data = await response.json();
-        setStatus(data.status);
-      } catch (err) {
-        console.error(err);
-        setError('Error fetching quiz status');
-      }
-    };
+    const fetchStatus = async () => {
+  try {
+    const url = `${process.env.REACT_APP_BACKEND_URL}/quizzes/status/${quiz_id}`;
+    const response = await fetch(url, {
+      headers: { 'x-auth-token': localStorage.getItem('token') },
+    });
+
+    const contentType = response.headers.get('content-type');
+    if (!response.ok || !contentType.includes('application/json')) {
+      const errorText = await response.text();
+      throw new Error(`Server error: ${errorText}`);
+    }
+
+    const data = await response.json();
+    setStatus(data.status);
+  } catch (err) {
+    console.error(err);
+    setError('Error fetching quiz status');
+  }
+};
+
 
     fetchStatus();
   }, [quiz_id]);
@@ -51,14 +54,11 @@ const TakeTestPage = () => {
     try {
       const url = `${process.env.REACT_APP_BACKEND_URL}/quizzes/take/${quiz_id}`;
       const response = await fetch(url, {
-        headers: {
-          'x-auth-token': localStorage.getItem('token'),
-        },
+        headers: { 'x-auth-token': localStorage.getItem('token') },
       });
-
-      const data = await response.json();
+      const text = await response.text();
+      const data = JSON.parse(text);
       setQuiz(data);
-      console.log(data);
     } catch (err) {
       console.error(err);
       setError('Error fetching quiz');
@@ -67,18 +67,13 @@ const TakeTestPage = () => {
 
   const fetchProgress = async () => {
     try {
-      // Fetch quiz first
       await fetchQuiz();
-
-      // Fetch progress after fetching quiz
       const url = `${process.env.REACT_APP_BACKEND_URL}/quizzes/progress/${quiz_id}`;
       const response = await fetch(url, {
-        headers: {
-          'x-auth-token': localStorage.getItem('token'),
-        },
+        headers: { 'x-auth-token': localStorage.getItem('token') },
       });
-
-      const data = await response.json();
+      const text = await response.text();
+      const data = JSON.parse(text);
       setProgress(data);
       setElapsedTime(data.elapsedTime);
     } catch (err) {
@@ -97,8 +92,6 @@ const TakeTestPage = () => {
   };
 
   const handleSubmit = async () => {
-    console.log(progress);
-
     try {
       const url = `${process.env.REACT_APP_BACKEND_URL}/quizzes/take/${quiz_id}`;
       const response = await fetch(url, {
@@ -109,11 +102,7 @@ const TakeTestPage = () => {
         },
         body: JSON.stringify({ answers: progress?.answers || [] }),
       });
-
-
-
-      const data = await response.json();
-      console.log(data);
+      if (!response.ok) throw new Error('Submission failed');
       navigate(`/result/${quiz_id}`);
     } catch (err) {
       console.error(err);
@@ -122,9 +111,6 @@ const TakeTestPage = () => {
   };
 
   const autoSaveProgress = async () => {
-    console.log(progressRef.current);
-    console.log(elapsedTimeRef.current);
-    console.log("auto save");
     try {
       const url = `${process.env.REACT_APP_BACKEND_URL}/quizzes/progress/${quiz_id}`;
       const response = await fetch(url, {
@@ -133,15 +119,12 @@ const TakeTestPage = () => {
           'Content-Type': 'application/json',
           'x-auth-token': localStorage.getItem('token'),
         },
-        body: JSON.stringify({ answers: progressRef.current?.answers || [], elapsedTime: elapsedTimeRef.current }),
+        body: JSON.stringify({
+          answers: progressRef.current?.answers || [],
+          elapsedTime: elapsedTimeRef.current,
+        }),
       });
-
-      if (!response.ok) {
-        throw new Error('Error saving progress');
-      }
-
-      const data = await response.json();
-      console.log(data);
+      if (!response.ok) throw new Error('Error saving progress');
     } catch (err) {
       console.error(err);
       setError('Error saving progress');
@@ -156,21 +139,18 @@ const TakeTestPage = () => {
   useEffect(() => {
     if (confirmation && quiz) {
       const interval = setInterval(() => {
-        setElapsedTime(prevTime => prevTime + 1);
+        setElapsedTime(prev => prev + 1);
       }, 1000);
-
       setTimer(interval);
       return () => clearInterval(interval);
     }
   }, [confirmation, quiz]);
 
-  // Autosave progress every 5 seconds with confirmation only
   useEffect(() => {
     if (confirmation && quiz) {
       const interval = setInterval(() => {
         autoSaveProgress();
-      }, 5000);
-
+      }, 5001);
       return () => clearInterval(interval);
     }
   }, [confirmation, quiz]);
@@ -180,158 +160,121 @@ const TakeTestPage = () => {
       clearInterval(timer);
       handleSubmit();
     }
-  }, [elapsedTime, quiz, timer]);
+  }, [elapsedTime, quiz]);
 
   const handleOptionChange = (questionId, selectedOption) => {
     const newAnswers = [...progress.answers];
-    const answerIndex = newAnswers.findIndex(a => a.question_id === questionId);
-
-    if (answerIndex === -1) {
+    const index = newAnswers.findIndex(a => a.question_id === questionId);
+    if (index === -1) {
       newAnswers.push({ question_id: questionId, selectedOption });
     } else {
-      newAnswers[answerIndex].selectedOption = selectedOption;
+      newAnswers[index].selectedOption = selectedOption;
     }
-
     setProgress({ answers: newAnswers });
-  }
+  };
 
-  if (error) {
-    return <div className="error">{error}</div>;
-  }
+  const BackToDashBoard = () => navigate(`/dashboard`);
 
-  const BackToDashBoard = () => {
-    navigate(`/dashboard`);
-  }
+  const formatTime = (seconds) => {
+    const h = String(Math.floor(seconds / 3600)).padStart(2, '0');
+    const m = String(Math.floor((seconds % 3600) / 60)).padStart(2, '0');
+    const s = String(seconds % 60).padStart(2, '0');
+    return `${h}:${m}:${s}`;
+  };
 
-  function formatTime(seconds) {
-    const hours = String(Math.floor(seconds / 3600)).padStart(2, '0');
-    const minutes = String(Math.floor((seconds % 3600) / 60)).padStart(2, '0');
-    const second = String(seconds % 60).padStart(2, '0');
+  if (error) return <div className="error">{error}</div>;
 
-    return `${hours}:${minutes}:${second}`;
-  }
-
-  return (
-    <div className="take-test">
-      <h2>{quiz?.title}</h2>
-      <div className="test-info">
-        <p>Status: {status}</p>
-
-        {confirmation && quiz && status !== "Taken" && (
-          <div className="countdown-timer">
-
-            <h3>Time Left: </h3>
-            <div className="time-unit">
-              {formatTime(quiz.timeLimit * 60 - elapsedTime)}
-            </div>
-          </div>
-        )}
+  if (status === "Taken") {
+    return (
+      <div className='taken-info'>
+        <p>You have already attempted this Quiz</p>
+        <button className='taken-info-btn' onClick={BackToDashBoard}>
+          <FaArrowLeft style={{ marginRight: '10px' }} />
+          Go To DashBoard
+        </button>
       </div>
+    );
+  }
 
-      {(status === "Not taken" || status === "In progress") &&
-        !confirmation && (
-          <div className="instructions">
-            <h3>Quiz Instructions</h3>
-            <ul>
-              <li>
-                Ensure you have a stable internet connection.
-              </li>
-              <li>You cannot pause the quiz once started.</li>
-              <li>
-                Answer all questions to the best of your
-                knowledge.
-              </li>
-              <li>
-                The timer will start as soon as you confirm the
-                instructions.
-              </li>
-            </ul>
-            <button className="button" onClick={handleConfirm}>
-              I Understand, Start Quiz
-            </button>
-          </div>
-        )}
 
-      {confirmation && quiz && status !== "Taken" && (
-        <div className="take-quiz">
-          {quiz.questions.map((question, index) => (
-            <div key={question._id} className="question-card">
-              <h4>Question {index + 1}</h4>
-              <p className="question">{question.question}</p>
+ return (
+  <div className="take-test">
+    <h2>{quiz?.title}</h2>
+    <div className="test-info">
+      <p>Status: {status}</p>
+      {confirmation && quiz && (
+        <div className="countdown-timer">
+          <h3>Time Left:</h3>
+          <div className="time-unit">{formatTime(quiz.timeLimit * 60 - elapsedTime)}</div>
+        </div>
+      )}
+    </div>
 
-              {question.options.map((option) => (
+    {(status === "Not taken" || status === "In progress") && !confirmation && (
+      <div className="instructions">
+        <h3>Quiz Instructions</h3>
+        <ul>
+          <li>Ensure you have a stable internet connection.</li>
+          <li>You cannot pause the quiz once started.</li>
+          <li>Answer all questions to the best of your knowledge.</li>
+          <li>The timer will start as soon as you confirm the instructions.</li>
+        </ul>
+        <button className="button" onClick={handleConfirm}>I Understand, Start Quiz</button>
+      </div>
+    )}
+
+    {confirmation && quiz && Array.isArray(quiz.questions) && (
+      <div className="take-quiz">
+        {quiz.questions.map((question, index) => (
+          <div key={question._id} className="question-card">
+            <h4>Question {index + 1}</h4>
+            <p className="question">{question.question}</p>
+            {question.options.map((option) => {
+              const checkboxId = `cbx-${question._id}-${option}`;
+              return (
                 <div key={option} className="option-group">
-                  
-                  <div class="checkbox-wrapper-12">
-                    <div class="cbx">
+                  <div className="checkbox-wrapper-12">
+                    <div className="cbx">
                       <input
-                        id="cbx-12"
+                        id={checkboxId}
                         type="checkbox"
                         name={`question-${question._id}`}
                         value={option}
                         checked={
-                          progress?.answers?.find(
-                            (a) =>
-                              a.question_id ===
-                              question._id
-                          )?.selectedOption === option
+                          progress?.answers?.find(a => a.question_id === question._id)?.selectedOption === option
                         }
-                        onChange={() =>
-                          handleOptionChange(
-                            question._id,
-                            option
-                          )
-                        }
-
+                        onChange={() => handleOptionChange(question._id, option)}
                       />
-                      <label for="cbx-12"></label>
-                      <svg width="15" height="14" viewbox="0 0 15 14" fill="none">
+                      <label htmlFor={checkboxId}></label>
+                      <svg width="15" height="14" viewBox="0 0 15 14" fill="none">
                         <path d="M2 8.36364L6.23077 12L13 2"></path>
                       </svg>
                     </div>
-
                     <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
                       <defs>
                         <filter id="goo-12">
-                          <fegaussianblur in="SourceGraphic" stddeviation="4" result="blur"></fegaussianblur>
-                          <fecolormatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7" result="goo-12"></fecolormatrix>
-                          <feblend in="SourceGraphic" in2="goo-12"></feblend>
+                          <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
+                          <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7" result="goo-12" />
+                          <feBlend in="SourceGraphic" in2="goo-12" />
                         </filter>
                       </defs>
                     </svg>
                   </div>
-
-                  <label
-                    htmlFor={`${question._id}-${option}`}
-                    className="option-label"
-                  >
-                    {option}
-                  </label>
+                  <label htmlFor={checkboxId} className="option-label">{option}</label>
                 </div>
-              ))}
-            </div>
-          ))}
-          <span id="button-bg">
-            <button className="button" onClick={handleSubmit}>
-              Submit Quiz
-            </button>
-          </span>
-        </div>
-      )}
-
-
-      {status === "Taken" && (
-        <div className='taken-info'>
-          <p>You have already attempted this Quiz</p>
-
-          <button className='taken-info-btn' onClick={BackToDashBoard}>
-            <FaArrowLeft style={{ marginRight: '10px' }} />
-            Go To DashBoard
+              );
+            })}
+          </div>
+        ))}
+        <span id="button-bg">
+          <button className="button" onClick={handleSubmit}>
+            Submit Quiz
           </button>
-        </div>
-      )}
-    </div>
-  );
+        </span>
+      </div>
+    )}
+  </div>
+);
 };
 
 export default TakeTestPage;
