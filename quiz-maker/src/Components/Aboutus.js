@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import React from "react";
 import img from "../images/team.svg";
-import PageLoader from "./PageLoader";
 import { Typography, styled } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import "./Aboutus.css";
